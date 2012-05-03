@@ -1,4 +1,4 @@
 Qwizkool
 ========
 
-The web is your textbook
+The web is your textbook!!
