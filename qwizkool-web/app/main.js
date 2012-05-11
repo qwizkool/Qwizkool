@@ -3,6 +3,7 @@ require([
 
   // Libs
   "jquery",
+  "tabs",
   "use!backbone",
 
   // Modules
@@ -15,7 +16,7 @@ require([
   "modules/footer"
 ],
 
-function(namespace, $, Backbone, FrontPage, Header, QwizkoolMain, ShowcaseTutorial, ShowcaseTopics, SocialConnection, Footer) {
+function(namespace, $, Tabs, Backbone, FrontPage, Header, QwizkoolMain, ShowcaseTutorial, ShowcaseTopics, SocialConnection, Footer) {
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({

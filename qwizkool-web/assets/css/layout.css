@@ -32,7 +32,7 @@
 	width:250px;
 	height:90px;
 	display:block;
-	background:url(../images/qwizkool-logo.png) no-repeat;
+	background:url(../img/qwizkool-logo.png) no-repeat;
 	
 	/* to hide text of the link */
 	text-indent: 100%;
@@ -76,7 +76,7 @@
 	width:70px;
 	height:70px;
 	display:block;
-	background: url(../images/f_logo.png) no-repeat;
+	background: url(../img/f_logo.png) no-repeat;
 	
 	/* to hide text of the link */
 	text-indent: 100%;
@@ -88,7 +88,7 @@
 	width:70px;
 	height:70px;
 	display:block;
-	background: url(../images/gplusicon_large.png) no-repeat;
+	background: url(../img/gplusicon_large.png) no-repeat;
 	
 	/* to hide text of the link */
 	text-indent: 100%;
@@ -100,7 +100,7 @@
 	width:70px;
 	height:70px;
 	display:block;
-	background: url(../images/twitter_newbird_boxed_whiteonblue.png) no-repeat;
+	background: url(../img/twitter_newbird_boxed_whiteonblue.png) no-repeat;
 	
 	/* to hide text of the link */
 	text-indent: 100%;

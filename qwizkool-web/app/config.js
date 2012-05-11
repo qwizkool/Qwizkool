@@ -12,6 +12,7 @@ require.config({
     jquery: "../assets/js/libs/jquery",
     underscore: "../assets/js/libs/underscore",
     backbone: "../assets/js/libs/backbone",
+    tabs: "../assets/js/libs/tabs",
 
     // Shim Plugin
     use: "../assets/js/plugins/use"
