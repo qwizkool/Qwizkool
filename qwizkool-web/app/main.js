@@ -13,16 +13,18 @@ require([
   "modules/showcase_tutorial",
   "modules/showcase_topics",
   "modules/social_connection",
+  "modules/registration",
   "modules/footer"
 ],
 
-function(namespace, $, Tabs, Backbone, FrontPage, Header, QwizkoolMain, ShowcaseTutorial, ShowcaseTopics, SocialConnection, Footer) {
+function(namespace, $, Tabs, Backbone, FrontPage, Header, QwizkoolMain, ShowcaseTutorial, ShowcaseTopics, SocialConnection, Registration, Footer) {
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
     routes: {
       "": "index",
-      ":hash": "index"
+//      ":hash": "index",
+      "register": "register"
     },
 
     index: function(hash) {
@@ -32,7 +34,7 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, QwizkoolMain, Showcase
       // Attach the tutorial to the DOM
       front_page.render(function(el) {
         $("#main").html(el);
-
+/*
         // Fix for hashes in pushState and hash fragment
         if (hash && !route._alreadyTriggered) {
           // Reset to home, pushState support automatically converts hashes
@@ -44,6 +46,7 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, QwizkoolMain, Showcase
           // Set an internal flag to stop recursive looping
           route._alreadyTriggered = true;
         }
+        */
       });      
 	  
 	  
@@ -82,7 +85,52 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, QwizkoolMain, Showcase
       });
 
 
-    }
+    },
+    
+    
+    register: function(hash) {
+      var route = this;
+      var front_page = new FrontPage.View();
+
+      // Attach the tutorial to the DOM
+      front_page.render(function(el) {
+        $("#main").html(el);
+/*
+        // Fix for hashes in pushState and hash fragment
+        if (hash && !route._alreadyTriggered) {
+          // Reset to home, pushState support automatically converts hashes
+          Backbone.history.navigate("", false);
+
+          // Trigger the default browser behavior
+          location.hash = hash;
+
+          // Set an internal flag to stop recursive looping
+          route._alreadyTriggered = true;
+        }
+*/
+      });      
+	  
+	  
+	  var header = new Header.View();
+      header.render(function(el) {
+        $("#header").html(el);
+      });
+
+      	  var user_register = new Registration.View();
+      user_register.render(function(el) {
+        $("#page_body").html(el);
+      });
+
+	  var footer = new Footer.View();
+      footer.render(function(el) {
+        $("#footer").html(el);
+      });
+
+
+    }  
+    
+    
+    
   });
 
   // Shorthand the application namespace
