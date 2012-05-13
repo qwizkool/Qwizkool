@@ -9,6 +9,7 @@ require([
   // Modules
   "modules/frontpage",
   "modules/header",
+  "modules/sign_in_form",
   "modules/qwizkool_main",
   "modules/showcase_tutorial",
   "modules/showcase_topics",
@@ -17,7 +18,7 @@ require([
   "modules/footer"
 ],
 
-function(namespace, $, Tabs, Backbone, FrontPage, Header, QwizkoolMain, ShowcaseTutorial, ShowcaseTopics, SocialConnection, Registration, Footer) {
+function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMain, ShowcaseTutorial, ShowcaseTopics, SocialConnection, Registration, Footer) {
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
@@ -55,7 +56,12 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, QwizkoolMain, Showcase
         $("#header").html(el);
       });
 
-
+	  var sign_in = new SignInForm.View();
+      sign_in.render(function(el) {
+        $("#sign_in_form_loc").html(el);
+      });
+		
+		
 	  var q_main = new QwizkoolMain.View();
       q_main.render(function(el) {
         $("#qwizkool_main").html(el);
