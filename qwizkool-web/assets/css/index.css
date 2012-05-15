@@ -1,1 +1,8 @@
-@import "style.css";
+/* Base styling */
+@import "base.css";
+
+/* Skeleton specific styling */
+@import "skeleton.css";
+
+/* Application specific styling */
+@import "layout.css";
