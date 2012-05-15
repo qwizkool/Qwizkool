@@ -23,19 +23,22 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
     routes: {
+      "register": "register",      
       "": "index",
-//      ":hash": "index",
-      "register": "register"
+      ":hash": "index"
     },
 
     index: function(hash) {
+      
+      //alert("index invoked");
+      
       var route = this;
       var front_page = new FrontPage.View();
 
       // Attach the tutorial to the DOM
       front_page.render(function(el) {
         $("#main").html(el);
-/*
+
         // Fix for hashes in pushState and hash fragment
         if (hash && !route._alreadyTriggered) {
           // Reset to home, pushState support automatically converts hashes
@@ -47,7 +50,7 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
           // Set an internal flag to stop recursive looping
           route._alreadyTriggered = true;
         }
-        */
+        
       });      
 	  
 	  
@@ -95,13 +98,16 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
     
     
     register: function(hash) {
+      
+      //alert("register invoked");
+      
       var route = this;
       var front_page = new FrontPage.View();
 
       // Attach the tutorial to the DOM
       front_page.render(function(el) {
         $("#main").html(el);
-/*
+
         // Fix for hashes in pushState and hash fragment
         if (hash && !route._alreadyTriggered) {
           // Reset to home, pushState support automatically converts hashes
@@ -112,8 +118,10 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
 
           // Set an internal flag to stop recursive looping
           route._alreadyTriggered = true;
+  
         }
-*/
+
+
       });      
 	  
 	  
@@ -151,8 +159,9 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
     app.router = new Router();
 
     // Trigger the initial route and enable HTML5 History API support
-    Backbone.history.start({ pushState: true });
+    Backbone.history.start({ pushState: false });
   });
+
 
   // All navigation that is relative should be passed through the navigate
   // method, to be processed by the router.  If the link has a data-bypass
@@ -175,5 +184,8 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
       Backbone.history.navigate(href, true);
     }
   });
+  
+  
 
+  
 });
