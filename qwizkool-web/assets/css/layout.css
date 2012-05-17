@@ -17,8 +17,12 @@
 /* #Site Styles
 ================================================== */
 
+/* override the skeleton fonts */
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Lato', sans-serif, "Georgia", "Times New Roman", serif;	
+}
 
-/* #Page Styles
+/* #Page Styles #08C
 ================================================== */
 
 .band.header .logo{
@@ -46,18 +50,25 @@
 }
 
 .band.qwizkool_main .header, .footer {
-  color:#33ccff;
+  color:#08C;
+}
+
+.band.qwizkool_main h2 {
+	font-weight: 300;
 }
 
 
 
 .band.qwizkool_registration .header, .footer {
-  color:#33ccff;
+  color:#08C;
 }
 .band.qwizkool_registration .registration_form a {
   color:#0;
 }
 
+.band.qwizkool_registration .microcopy {
+  font-weight: 100;
+}
 
 
 
@@ -109,11 +120,11 @@
 }
 
 .band.showcase_tutorial .header, .footer, strong {
-  color:#33ccff;
+  color:#08C;
 }
 
 .band.showcase_topics .header, .more_info a {
-  color:#33ccff;
+  color:#08C;
 }
 
 footer a {
@@ -123,9 +134,11 @@ footer a {
     border-bottom-color:000;
 }
 
-footer a:hover {
-  color:#33ccff;
+footer a:hover, h5 {
+  color:#08C;
 }
+
+
 
 /* #Media Queries
 ================================================== */
