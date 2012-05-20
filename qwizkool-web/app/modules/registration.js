@@ -2,14 +2,15 @@ define([
   "namespace",
 
   // Libs
-  "use!backbone"
+  "use!backbone",
 
   // Modules
+  "modules/user"
 
   // Plugins
 ],
 
-function(namespace, Backbone) {
+function(namespace, Backbone, User) {
 
   // Create a new module
   var Registration = namespace.module();
@@ -35,7 +36,59 @@ function(namespace, Backbone) {
           done(view.el);
         }
       });
+    },
+    
+    events: {
+//        "change input":"change",
+        "click #signup_button":"signUp",
+    },
+    
+    // When the user clicks sign-up, create a new user model and save it
+    signUp: function() {
+      
+      //alert("new user signup");
+
+      // Todo: Validate the input values
+      var new_user = new User.Model();
+      
+      new_user.set('name', $('#user_name').val());
+      new_user.set('mail', $('#user_email').val());
+      new_user.set('pass', $('#pass_word1').val());
+      
+      // Listen for success/fail events
+      //new_user.on('sync', syncDone);
+      //new_user.on('error', syncError);
+
+      var jqxhr = new_user.save({
+                      wait: true,
+                      
+                      error: function(model, response){
+                        alert("Failed to register.");
+                        },
+                      
+                      success: function(model, response){
+                        //alert(model.get('id') + " " + model.get('uid'));
+                        //alert("Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +".");
+                        }
+                    });
+      
+                                            
+            alert("Send registration info ?");
+            
+            if (new_user.get('uid') == null)
+            {
+              alert("Failed to register.");
+            }
+            else
+            {
+              alert("Hello " + new_user.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + new_user.get('uid') +".");
+            }
+            
+
+      
     }
+        
+    
   });
 
   // Required, return the module for AMD compliance

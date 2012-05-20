@@ -17,11 +17,12 @@ require([
   "modules/registration",
   "modules/footer",
   "modules/about_us",  
-  "modules/view_utils"
+  "modules/view_utils",
+  "modules/user"
 
 ],
 
-function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMain, ShowcaseTutorial, ShowcaseTopics, SocialConnection, Registration, Footer, AboutUs, ViewUtils) {
+function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMain, ShowcaseTutorial, ShowcaseTopics, SocialConnection, Registration, Footer, AboutUs, ViewUtils, User) {
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
@@ -106,6 +107,7 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
      
       var user_register = new Registration.View();
       ViewUtils.simple_view(user_register);
+      
 
     },
     
