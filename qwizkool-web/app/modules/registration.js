@@ -40,7 +40,7 @@ function(namespace, Backbone, User) {
     
     events: {
 //        "change input":"change",
-        "click #signup_button":"signUp",
+        "click #signup_button":"signUp"
     },
     
     // When the user clicks sign-up, create a new user model and save it
