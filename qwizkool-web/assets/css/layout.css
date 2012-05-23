@@ -16,6 +16,9 @@
 
 /* #Site Styles
 ================================================== */
+#qwizkool_page {
+	background: #FFF;
+}
 
 /* override the skeleton fonts */
 h1, h2, h3, h4, h5, h6 {

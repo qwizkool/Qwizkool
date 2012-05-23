@@ -18,17 +18,27 @@ require([
   "modules/footer",
   "modules/about_us",  
   "modules/view_utils",
-  "modules/user"
+  "modules/user",
+  "modules/user_main"
 
 ],
 
-function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMain, ShowcaseTutorial, ShowcaseTopics, SocialConnection, Registration, Footer, AboutUs, ViewUtils, User) {
+function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMain, ShowcaseTutorial, ShowcaseTopics, SocialConnection, Registration, Footer, AboutUs, ViewUtils, User,UserMainSection) {
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
     routes: {
-      "register": "register",      
+      "main": "main",      
+       "shelf": "main",      
+      "library": "main",      
+      "author": "main",      
+      "achievements": "main",      
+      "account": "main",      
+     "register": "register",      
       "about_us": "about_us",      
+      "featured": "index",
+      "most_popular": "index",
+      "recently_added": "index",
       "": "index",
       ":hash": "index"
     },
@@ -111,7 +121,11 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
 
     },
     
-    
+    main: function(hash) {
+      var main_section = new UserMainSection.View();
+      ViewUtils.simple_view(main_section);
+    },
+  
      about_us: function(hash) {
      //alert("register invoked");
      
