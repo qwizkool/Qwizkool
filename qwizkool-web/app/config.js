@@ -9,6 +9,7 @@ require.config({
     plugins: "../assets/js/plugins",
 
     // Libraries
+    order: "../assets/js/libs/order",
     jquery: "../assets/js/libs/jquery",
     underscore: "../assets/js/libs/underscore",
     backbone: "../assets/js/libs/backbone",
