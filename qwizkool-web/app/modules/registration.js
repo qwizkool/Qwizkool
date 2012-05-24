@@ -60,33 +60,33 @@ function(namespace, Backbone, User) {
       //new_user.on('error', syncError);
 
       var jqxhr = new_user.save({
-                      wait: true,
-                      
-                      error: function(model, response){
-                        alert("Failed to register.");
-                        },
-                      
-                      success: function(model, response){
-                        //alert(model.get('id') + " " + model.get('uid'));
-                        //alert("Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +".");
-                        }
-                    });
+        wait: true,
+        
+        error: function(model, response){
+          alert("Failed to register.");
+          },
+        
+        success: function(model, response){
+          //alert(model.get('id') + " " + model.get('uid'));
+          //alert("Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +".");
+          }
+      });
+
+                                      
+      alert("Send registration info ?");
       
-                                            
-            alert("Send registration info ?");
-            
-            if (new_user.get('uid') == null)
-            {
-              alert("Failed to register.");
-            }
-            else
-            {
-              alert("Hello " + new_user.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + new_user.get('uid') +".");
-            }
-            
-            // If the user registration is successful, move to logged in
-            // page.
-            Backbone.history.navigate("main", true);
+      if (new_user.get('uid') == null)
+      {
+        alert("Failed to register.");
+      }
+      else
+      {
+        alert("Hello " + new_user.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + new_user.get('uid') +".");
+      }
+      
+      // If the user registration is successful, move to logged in
+      // page.
+      Backbone.history.navigate("main", true);
       
     }
         
