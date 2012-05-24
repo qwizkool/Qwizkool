@@ -1,5 +1,5 @@
-// QwizPage represents one full quiz with associated navigation, hints, comments, images, video, audio etc.
-// The QwizPage primarily maintains a list of QwizPage references, and the starte transitions between them.
+// QwizBook represents one full quiz with associated navigation, hints, comments, images, video, audio etc.
+// The QwizBook primarily maintains a list of QwizPage references, and the starte transitions between them.
 // A QwizPage could be an intro page, a multiple choice question, summary etc.
 
 define([
@@ -27,7 +27,7 @@ function(namespace, Backbone) {
     defaults: {
 		"vid": "1",
 		"uid": "1",
-		"title": "Welcome to a new way of learning ..",
+		"title": "One leaf from the QwizBook",
 		"log": "",
 		"status": "1",
 		"comment": "1",
@@ -42,7 +42,7 @@ function(namespace, Backbone) {
 		"translate": "0",
 		"revision_timestamp": "1329946647",
 		"revision_uid": "1",
-		"body": "qwizbook navigation and qwizpage list",
+		"body": "qwizpage html content",
 		"cid": "0",
 		"last_comment_timestamp": "1329945019",
 		"last_comment_name": null,
