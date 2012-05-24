@@ -24,7 +24,7 @@ function(namespace, Backbone, FrontPage, Header, Footer) {
 
       // Attach the tutorial to the DOM
       front_page.render(function(el) {
-        $("#main").html(el);
+        $("#main").html(el);	
       });      
 	  	  
       var header = new Header.View();

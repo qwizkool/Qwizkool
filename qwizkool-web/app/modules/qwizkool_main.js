@@ -35,7 +35,20 @@ function(namespace, Backbone) {
           done(view.el);
         }
       });
-    }
+    },
+    
+    events: {
+       "click #register_button": "register"
+    },
+    
+    // When the user clicks on sign-up butto, navigate to registration
+    // page.
+    register: function() {
+      //alert("register invoked");
+    
+      // Navigate to registration page.
+      Backbone.history.navigate("register", true);
+   }
   });
 
   // Required, return the module for AMD compliance

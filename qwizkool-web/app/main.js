@@ -19,29 +19,20 @@ require([
   "modules/about_us",  
   "modules/view_utils",
   "modules/user",
-  "modules/user_main"
-
+   "modules/user_main",
 ],
 
-function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMain, ShowcaseTutorial, ShowcaseTopics, SocialConnection, Registration, Footer, AboutUs, ViewUtils, User,UserMainSection) {
+function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMain, ShowcaseTutorial, ShowcaseTopics, SocialConnection, Registration, Footer, AboutUs, ViewUtils, User,UserMain) {
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
     routes: {
-      "main": "main",      
-       "shelf": "main",      
-      "library": "main",      
-      "author": "main",      
-      "achievements": "main",      
-      "account": "main",      
-     "register": "register",      
-      "about_us": "about_us",      
-      "featured": "index",
-      "most_popular": "index",
-      "recently_added": "index",
-      "": "index",
-      ":hash": "index"
-    },
+      "main": 'user_main',
+      "about_us": 'about_us',
+      "register": 'register',
+      "": 'index',
+      ":hash": "index",
+      },
 
     index: function(hash) {
       
@@ -53,7 +44,7 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
       // Attach the tutorial to the DOM
       front_page.render(function(el) {
         $("#main").html(el);
-/*
+
         // Fix for hashes in pushState and hash fragment
         if (hash && !route._alreadyTriggered) {
           // Reset to home, pushState support automatically converts hashes
@@ -65,7 +56,7 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
           // Set an internal flag to stop recursive looping
           route._alreadyTriggered = true;
         }
-*/      
+     
       });      
 	  
 	  
@@ -113,27 +104,28 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
     
     
     register: function(hash) {
-      //alert("register invoked");
+    //alert("register invoked");
      
       var user_register = new Registration.View();
       ViewUtils.simple_view(user_register);
       
 
     },
-    
-    main: function(hash) {
-      var main_section = new UserMainSection.View();
-      ViewUtils.simple_view(main_section);
-    },
-  
-     about_us: function(hash) {
+      
+    about_us: function(hash) {
      //alert("register invoked");
      
       var about_us = new AboutUs.View();
       ViewUtils.simple_view(about_us);
+    },
+    
+    user_main: function(hash) {
+    //alert("user_main invoked");
+     
+      var user_main = new UserMain.View();
+      ViewUtils.simple_view(user_main);
     }
-    
-    
+   
   });
 
   // Shorthand the application namespace
@@ -148,7 +140,7 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
     app.router = new Router();
 
     // Trigger the initial route and enable HTML5 History API support
-    Backbone.history.start({ pushState: false });
+    Backbone.history.start({ pushState: true });
   
   });
 

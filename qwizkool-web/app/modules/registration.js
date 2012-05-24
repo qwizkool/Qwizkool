@@ -84,7 +84,9 @@ function(namespace, Backbone, User) {
               alert("Hello " + new_user.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + new_user.get('uid') +".");
             }
             
-
+            // If the user registration is successful, move to logged in
+            // page.
+            Backbone.history.navigate("main", true);
       
     }
         
