@@ -24,7 +24,11 @@ require.config({
       deps: ["use!underscore", "jquery"],
       attach: "Backbone"
     },
-
+  
+   tabs: {
+      deps: ["jquery"],
+    },
+    
     underscore: {
       attach: "_"
     }
