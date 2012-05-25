@@ -140,7 +140,7 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
     app.router = new Router();
 
     // Trigger the initial route and enable HTML5 History API support
-    Backbone.history.start({ pushState: true });
+    Backbone.history.start({ pushState: false });
   
   });
 
