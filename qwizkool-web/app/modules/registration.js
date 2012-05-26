@@ -23,6 +23,10 @@
     // This will fetch the tutorial template and render it.
     Registration.View = Backbone.View.extend({
       template: "app/templates/registration.html",
+      
+      initialize: function(){
+        this.model = new User.Model(); 
+        },
   
       render: function(done) {
         var view = this;
@@ -43,36 +47,34 @@
           "click #signup_button":"signUp"
       },
       
+      userRegisterEvent: function(model, statusTxt) {
+        
+        if (model.isRegistered == true) {
+          alert("Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +".");
+          Backbone.history.navigate("#main", true);
+        }
+        else {
+          alert("Failed to register "+ model.get('name') + " ! " + statusTxt);
+        }
+      },      
+      
       // When the user clicks sign-up, create a new user model and save it
       signUp: function() {
         
         //alert("new user signup");
   
-        // Todo: Validate the input values
-        var new_user = new User.Model();
-        
-        new_user.set('name', $('#user_name').val());
-        new_user.set('mail', $('#user_email').val());
-        new_user.set('pass', $('#pass_word1').val());
+        // Todo: Validate the input values        
+        this.model.set('name', $('#user_name').val());
+        this.model.set('mail', $('#user_email').val());
+        this.model.set('pass', $('#pass_word1').val());
         
         // Listen for success/fail events
-        //new_user.on('sync', syncDone);
-        //new_user.on('error', syncError);
-  
-        var jqxhr = new_user.save({}, {
-                        
-                        error: function(model, response){
-                          alert("Failed to register "+ model.get('name') + " ! " + response.statusText);
-                          },
-                        
-                        success: function(model, response){
-                          //alert("Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +".");
-                          Backbone.history.navigate("#main", true);
-  
-                          }
-                      });
+        this.model.on('user-registration-event', this.userRegisterEvent);
+        
+        this.model.register();
         
       }
+      
           
       
     });

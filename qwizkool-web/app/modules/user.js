@@ -23,11 +23,37 @@ function(namespace, Backbone) {
     defaults: {
       //id: null,
       name: 'new_user',
+      isRegistered: false,
       pass: 'abc123',
       mail: 'new_user@qwizkool.com',
       uid: null,
       uri: 'http://qwizkool.com/?q=rest_server/user/7'
-    }
+    },
+    
+    initialize: function(){
+        },
+        
+    register: function(){
+            //alert("Register user");
+            
+            var jqxhr = this.save({}, {
+                        
+                        error: function(model, response){
+                          model.set({isRegistered: false});
+                          model.trigger('user-registration-event', model, response.statusText);  
+                          
+                          alert("Model:Failed to register "+ model.get('name') + " ! " + response.statusText);
+                          },
+                        
+                        success: function(model, response){
+                          alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +".");
+                          
+                          model.set({isRegistered: true});
+                          model.trigger('user-registration-event', model, response.statusText);  
+                          }
+                      });            
+            
+        } 
     
   });
   
