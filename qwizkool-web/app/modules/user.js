@@ -33,27 +33,6 @@ function(namespace, Backbone) {
     initialize: function(){
         },
         
-    register: function(){
-            //alert("Register user");
-            
-            var jqxhr = this.save({}, {
-                        
-                        error: function(model, response){
-                          model.set({isRegistered: false});
-                          model.trigger('user-registration-event', model, response.statusText);  
-                          
-                          alert("Model:Failed to register "+ model.get('name') + " ! " + response.statusText);
-                          },
-                        
-                        success: function(model, response){
-                          alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +".");
-                          
-                          model.set({isRegistered: true});
-                          model.trigger('user-registration-event', model, response.statusText);  
-                          }
-                      });            
-            
-        } 
     
   });
   
