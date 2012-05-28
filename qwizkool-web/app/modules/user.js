@@ -47,11 +47,11 @@ function(namespace, Backbone) {
                           //model.trigger('user-registration-event', model, response.statusText);  
                           model.trigger('user-registration-event');  
                           
-                          //alert("Model:Failed to register "+ model.get('name') + " ! " + response.statusText);
+                          alert("Model:Failed to register "+ model.get('name') + " ! " + response.statusText);
                           },
                         
                         success: function(model, response){
-                          //alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +".");
+                          alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +".");
                           
                           model.set({isRegistered: true});
                                                    model.set({registrationStatus: "successful"});
