@@ -65,8 +65,14 @@ h1, h2, h3, h4, h5, h6 {
 .band.qwizkool_registration .header, .footer {
   color:#08C;
 }
+
 .band.qwizkool_registration .registration_form a {
-  color:#0;
+  color:#000;
+}
+
+
+.band.qwizkool_registration #registration-status .status {
+  color:#ff0000;
 }
 
 .band.qwizkool_registration .microcopy {

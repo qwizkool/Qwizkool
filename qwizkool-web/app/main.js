@@ -14,7 +14,7 @@ require([
   "modules/showcase_tutorial",
   "modules/showcase_topics",
   "modules/social_connection",
-  "modules/registration",
+  "modules/registration_page",
   "modules/footer",
   "modules/about_us",  
   "modules/view_utils",
@@ -31,9 +31,12 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
       "about_us": 'about_us',
       "register": 'register',
       "": 'index',
-      ":hash": "index",
       },
-
+      
+    initialize: function(){
+	this.index();
+      },
+  
     index: function(hash) {
       
       //alert("index invoked");
@@ -104,12 +107,9 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
     
     
     register: function(hash) {
-    //alert("register invoked");
-     
+    //alert("register invoked");    
       var user_register = new Registration.View();
-      ViewUtils.simple_view(user_register);
-      
-
+      user_register.render();
     },
       
     about_us: function(hash) {
@@ -140,7 +140,7 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
     app.router = new Router();
 
     // Trigger the initial route and enable HTML5 History API support
-    Backbone.history.start({ pushState: false });
+    Backbone.history.start({ pushState: true });
   
   });
 
@@ -152,6 +152,8 @@ function(namespace, $, Tabs, Backbone, FrontPage, Header, SignInForm, QwizkoolMa
     // Get the anchor href and protcol
     var href = $(this).attr("href");
     var protocol = this.protocol + "//";
+    
+    alert(href + protocol);
 
     // Ensure the protocol is not part of URL, meaning its relative.
     if (href && href.slice(0, protocol.length) !== protocol &&

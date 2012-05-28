@@ -20,10 +20,12 @@ function(namespace, Backbone) {
     //Root of the REST url for users
     urlRoot: "/?q=rest_server/user",
 
-    defaults: {
+    defaults:{ 
       //id: null,
       name: 'new_user',
       isRegistered: false,
+      registrationAttempted: false,
+      registrationStatus: "Failed",
       pass: 'abc123',
       mail: 'new_user@qwizkool.com',
       uid: null,
@@ -33,6 +35,32 @@ function(namespace, Backbone) {
     initialize: function(){
         },
         
+    register: function(){
+            //alert("Register user");
+            this.set({registrationAttempted: true});
+            var jqxhr = this.save({}, {
+                        
+                        error: function(model, response){
+                          model.set({isRegistered: false});
+                                                   model.set({registrationStatus: "failed"});
+ 
+                          //model.trigger('user-registration-event', model, response.statusText);  
+                          model.trigger('user-registration-event');  
+                          
+                          //alert("Model:Failed to register "+ model.get('name') + " ! " + response.statusText);
+                          },
+                        
+                        success: function(model, response){
+                          //alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +".");
+                          
+                          model.set({isRegistered: true});
+                                                   model.set({registrationStatus: "successful"});
+                           model.trigger('user-registration-event');  
+                       //  model.trigger('user-registration-event', model, response.statusText);  
+                          }
+                      });            
+            
+        } 
     
   });
   
