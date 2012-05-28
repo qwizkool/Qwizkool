@@ -39,26 +39,23 @@ function(namespace, Backbone) {
             //alert("Register user");
             this.set({registrationAttempted: true});
             var jqxhr = this.save({}, {
-                        
-                        error: function(model, response){
-                          model.set({isRegistered: false});
-                                                   model.set({registrationStatus: "failed"});
- 
-                          //model.trigger('user-registration-event', model, response.statusText);  
-                          model.trigger('user-registration-event');  
-                          
-                          alert("Model:Failed to register "+ model.get('name') + " ! " + response.statusText);
-                          },
-                        
-                        success: function(model, response){
-                          alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +".");
-                          
-                          model.set({isRegistered: true});
-                                                   model.set({registrationStatus: "successful"});
-                           model.trigger('user-registration-event');  
-                       //  model.trigger('user-registration-event', model, response.statusText);  
-                          }
-                      });            
+              
+              error: function(model, response){
+                model.set({isRegistered: false});
+                model.set({registrationStatus: response.statusText});
+                model.trigger('user-registration-event');  
+                
+               // alert("Model:Failed to register "+ model.get('name') + " ! " + response.statusText);
+                },
+              
+              success: function(model, response){
+                //alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +".");
+                
+                model.set({isRegistered: true});
+                model.set({registrationStatus: "Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +"."});
+                model.trigger('user-registration-event');  
+               }
+            });            
             
         } 
     

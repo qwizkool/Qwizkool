@@ -71,8 +71,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.band.qwizkool_registration #registration-status .status {
+.band.qwizkool_registration #registration-status .error {
   color:#ff0000;
+}
+
+.band.qwizkool_registration #registration-status .success {
+  color:#08C;
 }
 
 .band.qwizkool_registration .microcopy {

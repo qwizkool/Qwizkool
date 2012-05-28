@@ -61,7 +61,7 @@ function(namespace, Backbone, FrontPage, Header, Footer, Registration) {
       },
       
       registrationHandler: function(){
-          //  alert("Hello world");
+          // alert("registrationHandler");
          // Render the Page content.     
             this.registration.render(function(el) {
                   $("#page_body").html(el);
