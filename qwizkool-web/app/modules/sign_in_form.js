@@ -49,21 +49,24 @@ function(namespace, Backbone, User) {
     // When the user clicks sign-in, create a new user model and save it
     signIn: function() {
       
-      alert("user signin");
+      //alert("user signin");
       //$("#registration-status").hide();
 
       // Todo: Validate the input values        
       this.model.set('username', $('#user_id_input').val());
       this.model.set('password', $('#user_password_input').val());
       
-       this.model.set('name', $('#user_id_input').val());
-        this.model.set('mail', $('#user_id_input').val());
-        this.model.set('pass', $('#user_password_input').val());      
+      this.model.set('name', $('#user_id_input').val());
+      this.model.set('mail', $('#user_id_input').val());
+      this.model.set('pass', $('#user_password_input').val());      
       
       // Listen for success/fail events
       //this.model.on('user-registration-event', this.userRegisterEvent, this);
       
       this.model.login();
+      
+      alert("user signin : end");
+
       
     }    
     
