@@ -49,6 +49,8 @@ function(namespace, Backbone, User) {
     userLoginEvent: function() {
       if (this.model.get('isLoggedIn') === true){
         
+        //alert(JSON.parse(localStorage.getItem('qwizkoolUser')).username);
+        
           // Go to logged in page.
           Backbone.history.navigate("#main", true);
         } else {

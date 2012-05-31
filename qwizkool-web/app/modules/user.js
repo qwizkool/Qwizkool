@@ -99,6 +99,10 @@ function(namespace, Backbone) {
           alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are logged in.");
     
           model.set({isLoggedIn: true});
+          
+          // Store logged-in user info in persistent
+          localStorage.setItem('qwizkoolUser', JSON.stringify(model));
+
           model.set({loginStatus: "Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +"."});
           model.trigger('user-login-event');
         }
