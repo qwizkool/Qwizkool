@@ -46,6 +46,18 @@ function(namespace, Backbone, User) {
           "click #signin_button":"signIn"
     },
     
+    userLoginEvent: function() {
+      if (this.model.get('isLoggedIn') === true){
+        
+          // Go to logged in page.
+          Backbone.history.navigate("#main", true);
+        } else {
+          
+          // Trigger event to update status
+          this.trigger('login-attempted');
+        }
+    },         
+    
     // When the user clicks sign-in, create a new user model and save it
     signIn: function() {
       
@@ -61,7 +73,7 @@ function(namespace, Backbone, User) {
       this.model.set('pass', $('#user_password_input').val());      
       
       // Listen for success/fail events
-      //this.model.on('user-registration-event', this.userRegisterEvent, this);
+      this.model.on('user-login-event', this.userLoginEvent, this);
       
       this.model.login();
       
