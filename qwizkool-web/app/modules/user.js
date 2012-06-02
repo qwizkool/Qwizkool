@@ -92,11 +92,11 @@ function(namespace, Backbone) {
           model.set({loginStatus: response.statusText});
           model.trigger('user-login-event');
         
-          alert("Model:Failed to login "+ model.get('name') + " ! " + response.statusText);
+          //alert("Model:Failed to login "+ model.get('name') + " ! " + response.statusText);
         },
         
         success: function(model, response) {
-          alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are logged in.");
+         // alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are logged in.");
     
           model.set({isLoggedIn: true});
           

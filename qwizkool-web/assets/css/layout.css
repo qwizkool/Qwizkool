@@ -79,6 +79,14 @@ h1, h2, h3, h4, h5, h6 {
   color:#08C;
 }
 
+.sign_in_form #login-status .error {
+  color:#ff0000;
+}
+
+.sign_in_form #login-status .success {
+  color:#08C;
+}
+
 .band.qwizkool_registration .microcopy {
   font-weight: 100;
 }
