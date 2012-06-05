@@ -97,8 +97,6 @@ function(namespace, $, Tabs, Backbone, AboutUs, ViewUtils, User,UserMain, IndexP
 		var href = $(this).attr("href");
 		var protocol = this.protocol + "//";
 
-		alert(href + protocol);
-
 		// Ensure the protocol is not part of URL, meaning its relative.
 		if (href && href.slice(0, protocol.length) !== protocol && href.indexOf("javascript:") !== 0) {
 			// Stop the default event to ensure the link will not cause a page

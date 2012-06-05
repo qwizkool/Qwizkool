@@ -181,6 +181,18 @@ footer a:hover, h5 {
 }
 
 
+.registration-form {
+	background: #FFF;
+	padding: 10px;
+	border: thin solid #d0d0d0; /* This is the outer border, inner border will be added to the div contained within*/
+	border-radius: 8px; /* Add rounded corners to the form*/
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	box-shadow: 3px 3px 7px #888; /* Add shadow to the form – First two values are shadow offset, third is blur radius*/
+	-webkit-box-shadow: 3px 3px 7px #888;
+	-moz-box-shadow: 3px 3px 7px #888;
+}
+
 
 /* #Media Queries
 ================================================== */
