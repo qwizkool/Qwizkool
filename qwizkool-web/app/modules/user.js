@@ -21,7 +21,7 @@ function(namespace, Backbone) {
   
     urlRoot: function() {
   
-      urlRootBase = "/?q=rest_server/user/";
+      urlRootBase = "/webservice/?q=rest_server/user/";
   
       if (this.action == "register") {
         return urlRootBase;
@@ -46,7 +46,7 @@ function(namespace, Backbone) {
       password: 'abc123',
       mail: 'new_user@qwizkool.com',
       uid: null,
-      uri: 'http://qwizkool.com/?q=rest_server/user/7',
+      uri: 'http://qwizkool.com/webservice/?q=rest_server/user/7',
       action: 'none'
     },
   
@@ -118,7 +118,7 @@ function(namespace, Backbone) {
   User.Collection = Backbone.Collection.extend( {
   
     model: User.Model,
-    url: "/?q=rest_server/user"
+    url: "/webservice/?q=rest_server/user"
 
   });
 

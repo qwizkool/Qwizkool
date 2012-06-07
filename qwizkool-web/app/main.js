@@ -13,14 +13,19 @@ require([
   "order!modules/user_main",
   "order!modules/index_page",
   "modules/registration_page",
+  "modules/frontpage",
+  "modules/header",
+  "modules/footer",
+  "modules/qwizbook"
 
 ],
 
-function(namespace, $, Tabs, Backbone, AboutUs, ViewUtils, User,UserMain, IndexPage, Registration) {
+function(namespace, $, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain, IndexPage, Registration, FrontPage, Header, Footer, QwizBook) {
 
 	// Defining the application router, you can attach sub routers here.
 	var Router = Backbone.Router.extend({
 		routes : {
+		   "qwizbook/:id": "openQwizbook",
 			"main" : 'user_main',
 			"about_us" : 'about_us',
 			"register" : 'register',
@@ -64,11 +69,82 @@ function(namespace, $, Tabs, Backbone, AboutUs, ViewUtils, User,UserMain, IndexP
 		},
 
 		user_main : function(hash) {
+			
 			//alert("user_main invoked");
 
-			var user_main = new UserMain.View();
-			ViewUtils.simple_view(user_main);
+		  var front_page = new FrontPage.View();
+
+		  // Attach the tutorial to the DOM
+		  front_page.render(function(el) {
+			 $("#main").html(el);
+
+			 var header = new Header.View();
+			 header.render(function(el) {
+				$("#header").html(el);
+			 });
+  
+			 var user_main = new UserMain.View();
+			 user_main.render(function(el) {
+				$("#page_body").html(el);
+			 
+				// Show qwizbooks
+				var qwizbooks = new QwizBook.Collection();
+				var jqxhr = qwizbooks.fetch(  {
+				
+				  error: function(collection, response) {				  
+					 alert("Failed to get QwizBooks!");
+				  },
+				  
+				  success: function(collection, response) {
+					 					 
+					 //alert(collection.length);
+																
+						//alert(JSON.stringify(qwizbook));
+						//alert(qwizbook.get('title'));
+  
+						//$("#qwizbook-list").append("<li>" + qwizbook.get('title') + "<li>");
+						var qwizbookListView = new QwizBook.ListView({model: collection});
+						qwizbookListView.render(function(el) {
+						  $("#qwizbook-list").append(el);
+						});  
+				  }
+				});
+				
+				
+			 });
+		  
+			 
+			 var footer = new Footer.View();
+			 footer.render(function(el) {
+				$("#footer").html(el);
+			 });  			 
+			 
+		  });  
+
+
+		},
+		
+		openQwizbook : function(nid) {
+			//alert("qwizbook invoked");
+			 var qwizbook = new QwizBook.Model();
+			 qwizbook.set({id : nid});
+				
+			 var jqxhr = qwizbook.fetch( {
+				
+				  error: function(model, response) {				  
+					 alert("Failed to get QwizBook!");
+				  },
+				  
+				  success: function(model, response) {
+					$("#page_body").html("<h3>" + model.get('title') + "</h3>");
+				   $("#page_body").append("<h4>" + "SCXML data :" + "</h4>");
+				   $("#page_body").append("<hr/>" + JSON.stringify(model.get('body')) + "<hr/>"); 					 
+				  }
+				});			 
+			 
+
 		}
+		
 	});
 
 	// Shorthand the application namespace

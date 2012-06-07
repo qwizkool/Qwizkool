@@ -22,7 +22,7 @@ function(namespace, Backbone) {
   QwizPage.Model = Backbone.Model.extend({
     
     //Root of the REST url for QwizBooks
-    urlRoot: "/?q=rest_server/node",
+    urlRoot: "/webservice/?q=rest_server/node",
 
     defaults: {
 		"vid": "1",
@@ -60,7 +60,7 @@ function(namespace, Backbone) {
   QwizPage.Collection = Backbone.Collection.extend({
     
     model: QwizPage.Model,
-    url: "/?q=rest_server/node"
+    url: "/webservice/?q=rest_server/node"
   
   });
   

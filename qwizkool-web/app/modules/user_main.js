@@ -2,14 +2,15 @@ define([
   "namespace",
 
   // Libs
-  "use!backbone"
+  "use!backbone",
 
   // Modules
+  "modules/qwizbook"
 
   // Plugins
 ],
 
-function(namespace, Backbone) {
+function(namespace, Backbone, QwizBook) {
 
   // Create a new module
   var UserMainSection = namespace.module();
@@ -34,7 +35,8 @@ function(namespace, Backbone) {
         if (_.isFunction(done)) {
           done(view.el);
         }
-      });
+               
+      });     
     }
   });
 

@@ -22,7 +22,7 @@ function(namespace, Backbone) {
   QwizBook.Model = Backbone.Model.extend({
     
     //Root of the REST url for QwizBooks
-    urlRoot: "/?q=rest_server/node",
+    urlRoot: "/webservice/?q=rest_server/node",
 
     defaults: {
 		"vid": "1",
@@ -60,7 +60,7 @@ function(namespace, Backbone) {
   QwizBook.Collection = Backbone.Collection.extend({
     
     model: QwizBook.Model,
-    url: "/?q=rest_server/node"
+    url: "/webservice/?q=rest_server/node"
   
   });
   
@@ -70,14 +70,22 @@ function(namespace, Backbone) {
   // This will fetch the tutorial template and render it.
   QwizBook.View = Backbone.View.extend({
     template: "app/templates/qwizbook.html",
-
+	 
+    initialize : function() {
+		//this.model = new QwizBook.Model();
+	 },
+   
     render: function(done) {
       var view = this;
+      var qbook_template;
+
 
       // Fetch the template, render it to the View element and call done.
       namespace.fetchTemplate(this.template, function(tmpl) {
-        view.el.innerHTML = tmpl();
-
+        //alert("Templ " + tmpl(view.model.toJSON()) + " " + "json" + view.model.get('title'));
+        qbook_template = _.template(tmpl(view.model.toJSON()));
+        view.el.innerHTML = qbook_template();
+        
         // If a done function is passed, call it with the element
         if (_.isFunction(done)) {
           done(view.el);
@@ -85,6 +93,44 @@ function(namespace, Backbone) {
       });
     }
   });
+  
+QwizBook.ListView = Backbone.View.extend({
+ 
+    template: "app/templates/qwizbooklist.html",
+	     
+    initialize:function () {
+        this.model.bind("reset", this.render, this);
+    },
+ 
+    render:function (done) {
+      
+      var view = this;
+      var qbookview_template;
+
+      // Fetch the template, render it to the View element and call done.
+      namespace.fetchTemplate(this.template, function(tmpl) {
+        //alert("Templ " + tmpl(view.model.toJSON()) + " " + "json" + view.model.get('title'));
+        qbookview_template = _.template(tmpl());
+        view.el.innerHTML = qbookview_template();
+        
+        _.each(view.model.models, function (qwizbook) {
+          		 var qwizbookView = new QwizBook.View({model: qwizbook});
+					 qwizbookView.render(function(elv) {
+                  $(view.el).find("#qwizbooks").append(elv);
+                });
+        });        
+        
+        // If a done function is passed, call it with the element
+        if (_.isFunction(done)) {
+          done(view.el);
+        }
+      });
+      
+
+        return this;
+    }
+ 
+});  
 
 
   // Required, return the module for AMD compliance
