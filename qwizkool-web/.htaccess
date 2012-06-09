@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Restricted Construction Area"
+AuthUserFile /home2/qwizkool/public_html/.htpasswd
+require valid-user
