@@ -40,41 +40,43 @@ function(namespace, Backbone, FrontPage, Header, SignInForm, QwizkoolMain,
 		},
 
 		render : function(done) {
- 
- 			// Attach the tutorial to the DOM
-			this.frontPage.render(function(el) {
+
+			var thisView = this;
+			// Attach the tutorial to the DOM
+			thisView.frontPage.render(function(el) {
 				$("#main").html(el);
-			});
 
-			this.header.render(function(el) {
-				$("#header").html(el);
-			});
-			
-			this.signIn.render(function(el) {
-				$("#sign_in_form_loc").html(el);
-			});
+				thisView.header.render(function(el) {
+					$("#header").html(el);
 
-			this.qwizkoolMain.render(function(el) {
-				$("#qwizkool_main").html(el);
-			});
+					thisView.signIn.render(function(el) {
+						$("#sign_in_form_loc").html(el);
+					});
+				});
 
-			this.tutorial.render(function(el) {
-				$("#showcase_tutorial").html(el);
-			});
+				thisView.qwizkoolMain.render(function(el) {
+					$("#qwizkool_main").html(el);
+				});
 
-			this.social.render(function(el) {
-				$("#social_connection").html(el);
-			});
+				thisView.tutorial.render(function(el) {
+					$("#showcase_tutorial").html(el);
+				});
 
-			this.topics.render(function(el) {
-				$("#showcase_topics").html(el);
-			});
+				thisView.social.render(function(el) {
+					$("#social_connection").html(el);
+				});
 
-			this.footer.render(function(el) {
-				$("#footer").html(el);
-			});
+				thisView.topics.render(function(el) {
+					$("#showcase_topics").html(el);
+				});
 
+				thisView.footer.render(function(el) {
+					$("#footer").html(el);
+				});
+			});
 		},
+
+
 		
 		logInHandler: function() {
 			this.signIn.renderLogInStatus(function(el) {

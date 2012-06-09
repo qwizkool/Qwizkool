@@ -194,6 +194,27 @@ footer a:hover, h5 {
 }
 
 
+
+.qwizbook-collection-header {
+	padding: 10px;
+	border-bottom: thin solid #d0d0d0;
+}
+
+.qwizbook-container {
+	background: #0;
+	padding: 10px;
+	border-bottom: thin solid #d0d0d0;
+}
+
+.user-main-tab-content {
+	border-right: thin solid #d0d0d0;
+	border-left: thin solid #d0d0d0;
+	border-bottom: thin solid #d0d0d0;
+}
+
+
+
+ 
 /* #Media Queries
 ================================================== */
 

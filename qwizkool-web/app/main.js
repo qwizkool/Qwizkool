@@ -33,7 +33,7 @@ function(namespace, $, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain, Index
 		},
 
 		initialize : function() {
-			this.index();
+			//this.index();
 		},
 
 		index : function(hash) {

@@ -30,28 +30,29 @@ function(namespace, Backbone, FrontPage, Header, Footer, Registration) {
 			this.registration.on("registration-attempted", this.registrationHandler, this);
 		},
 
+
 		render : function(done) {
 
+			var thisView = this;
 			// Render the top level structure.
-			this.front_page.render(function(el) {
+			thisView.front_page.render(function(el) {
 				$("#main").html(el);
-			});
 
-			// Render the Header.
-			this.header.render(function(el) {
-				$("#header").html(el);
-			});
+				// Render the Header.
+				thisView.header.render(function(el) {
+					$("#header").html(el);
+				});
 
-			// Render the Page content.
-			this.registration.render(function(el) {
-				$("#page_body").html(el);
-			});
+				// Render the Page content.
+				thisView.registration.render(function(el) {
+					$("#page_body").html(el);
+				});
 
-			// Render the Footer..
-			this.footer.render(function(el) {
-				$("#footer").html(el);
+				// Render the Footer..
+				thisView.footer.render(function(el) {
+					$("#footer").html(el);
+				});
 			});
-
 		},
 
 		registrationHandler : function() {
