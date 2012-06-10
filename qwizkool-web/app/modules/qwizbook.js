@@ -132,7 +132,36 @@ QwizBook.ListView = Backbone.View.extend({
  
 });  
 
+QwizBook.CoverView = Backbone.View.extend({
+ 
+    template: "app/templates/qwizbookcover.html",
+	     
+    initialize:function () {
+        this.model.bind("reset", this.render, this);
+    },
+ 
+    render:function (done) {
+      
+      var view = this;
+      var qbookview_template;
 
+      // Fetch the template, render it to the View element and call done.
+      namespace.fetchTemplate(this.template, function(tmpl) {
+        //alert("Templ " + tmpl(view.model.toJSON()) + " " + "json" + view.model.get('title'));
+        qbookview_template = _.template(tmpl());
+        view.el.innerHTML = qbookview_template();
+               
+        // If a done function is passed, call it with the element
+        if (_.isFunction(done)) {
+          done(view.el);
+        }
+      });
+      
+
+        return this;
+    }
+ 
+});
   // Required, return the module for AMD compliance
   return QwizBook;
 

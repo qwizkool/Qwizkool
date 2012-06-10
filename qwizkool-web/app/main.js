@@ -26,10 +26,11 @@ function(namespace, $, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain, Index
 	var Router = Backbone.Router.extend({
 		routes : {
 		   "qwizbook/:id": "openQwizbook",
+		   "qwizpage/:id": "openQwizpage",
 			"main" : 'user_main',
 			"about_us" : 'about_us',
 			"register" : 'register',
-			"" : 'index',
+			"" : 'index'
 		},
 
 		initialize : function() {
@@ -141,9 +142,27 @@ function(namespace, $, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain, Index
 				   $("#page_body").append("<hr/>" + JSON.stringify(model.get('body')) + "<hr/>"); 					 
 				  }
 				});			 
-			 
-
-		}
+		},
+		
+		openQwizpage : function(nid) {
+			//alert("qwizbook invoked");
+			 var qwizpage = new QwizPage.Model();
+			 qwizpage.set({id : nid});
+				
+			 var jqxhr = qwizpage.fetch( {
+				
+				  error: function(model, response) {				  
+					 alert("Failed to get QwizPage!");
+				  },
+				  
+				  success: function(model, response) {
+					$("#page_body").html("<h3>" + model.get('title') + "</h3>");
+				   $("#page_body").append("<h4>" + "SCXML data :" + "</h4>");
+				   $("#page_body").append("<hr/>" + JSON.stringify(model.get('body')) + "<hr/>"); 					 
+				  }
+				});			 
+		}		
+		
 		
 	});
 
