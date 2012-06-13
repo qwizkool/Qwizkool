@@ -15,12 +15,13 @@ require([
   "modules/registration_page",
   "modules/frontpage",
   "modules/header",
+  "modules/sign_out",
   "modules/footer",
   "modules/qwizbook"
 
 ],
 
-function(namespace, $, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain, IndexPage, Registration, FrontPage, Header, Footer, QwizBook) {
+function(namespace, $, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain, IndexPage, Registration, FrontPage, Header, SignOut, Footer, QwizBook) {
 
 	// Defining the application router, you can attach sub routers here.
 	var Router = Backbone.Router.extend({
@@ -82,6 +83,11 @@ function(namespace, $, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain, Index
 			 var header = new Header.View();
 			 header.render(function(el) {
 				$("#header").html(el);
+				var signOut = new SignOut.View();
+				signOut.render(function(el) {
+						$("#sign_in_form_loc").html(el);
+					});
+
 			 });
   
 			 var user_main = new UserMain.View();
