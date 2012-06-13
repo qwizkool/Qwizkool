@@ -17,7 +17,7 @@
 /* #Site Styles
 ================================================== */
 #qwizkool_page {
-	background: #FFF;
+	background: #F0F0F0;
 }
 
 /* override the skeleton fonts */
@@ -196,7 +196,6 @@ footer a:hover, h5 {
 
 
 .qwizbook-collection-header {
-	padding: 10px;
 	border-bottom: thin solid #d0d0d0;
 }
 
