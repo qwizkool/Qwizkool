@@ -22,11 +22,7 @@ require([
 
 ],
 
-<<<<<<< HEAD
-function(namespace, $, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain, IndexPage, Registration, FrontPage, Header, SignOut, Footer, QwizBook) {
-=======
-function(namespace, $, scion, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain, IndexPage, Registration, FrontPage, Header, Footer, QwizBook) {
->>>>>>> Add SCION library
+function(namespace, $, scion, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain, IndexPage, Registration, FrontPage, Header, SignOut, Footer, QwizBook) {
 
 	// Defining the application router, you can attach sub routers here.
 	var Router = Backbone.Router.extend({
