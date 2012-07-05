@@ -3,6 +3,7 @@ require([
 
   // Libs
   "jquery",
+  "scion",
   "use!tabs",
   "use!backbone",
 
@@ -21,7 +22,11 @@ require([
 
 ],
 
+<<<<<<< HEAD
 function(namespace, $, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain, IndexPage, Registration, FrontPage, Header, SignOut, Footer, QwizBook) {
+=======
+function(namespace, $, scion, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain, IndexPage, Registration, FrontPage, Header, Footer, QwizBook) {
+>>>>>>> Add SCION library
 
 	// Defining the application router, you can attach sub routers here.
 	var Router = Backbone.Router.extend({
@@ -145,7 +150,48 @@ function(namespace, $, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain, Index
 				  success: function(model, response) {
 					$("#page_body").html("<h3>" + model.get('title') + "</h3>");
 				   $("#page_body").append("<h4>" + "SCXML data :" + "</h4>");
-				   $("#page_body").append("<hr/>" + JSON.stringify(model.get('body')) + "<hr/>"); 					 
+				   $("#page_body").append("<hr/>" + JSON.stringify(model.get('body')) + "<hr/>");
+					
+					var scxml_body = model.get('body');
+					
+					var scxml_xml = $.parseXML(scxml_body.und[0].value);
+					
+					var scmodel = scion.documentToModel(scxml_xml);
+					
+
+
+                    //instantiate the interpreter
+                    var interpreter = new scion.SCXML(scmodel);
+
+						  interpreter.registerListener({
+							 onEntry : function(stateId) {
+								$("#page_body").append("<h4>" + "Entering state :" + stateId + "</h4>");
+								},
+							 onExit : function(stateId) {
+								$("#page_body").append("<h4>" + "Exiting state :" + stateId + "</h4>");
+								},
+							 onTransition : function(sourceStateId, targetStateIds) {
+								$("#page_body").append("<h4>" + "Transitioning from state :" + sourceStateId + "</h4>");
+								}
+							 });						  
+						  
+                    //start the interpreter
+                    interpreter.start();
+
+                    //send the init event
+                    interpreter.gen({name:"init",data:{foo:1}});
+
+                    function handleEvent(e){
+                        e.preventDefault();
+                        interpreter.gen({name : e.type,data: e});
+                    }
+
+                    //connect all relevant event listeners
+                    //$(rect).mousedown(handleEvent);
+                    //$(document.documentElement).bind("mouseup mousemove",handleEvent);
+						  
+
+	 
 				  }
 				});			 
 		},
