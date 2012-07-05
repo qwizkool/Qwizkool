@@ -62,8 +62,10 @@ Example SCXML document basic1.scxml stripped of whitespace and converted to Json
         ]
 ]
 */
+define(['exports', 'module', 'require', 'state_kinds_enum'],
+       function (exports, module, require, stateKinds) {
 
-var stateKinds = require("../scxml/state-kinds-enum");
+//var stateKinds = require("../scxml/state-kinds-enum");
 
 var STATES_THAT_CAN_BE_CHILDREN = ["state", "parallel", "history", "final", "initial"],
     STATE_TAGS = STATES_THAT_CAN_BE_CHILDREN.concat("scxml");
@@ -527,3 +529,4 @@ if (require.main === module) {
         go(str);
     }
 }
+});

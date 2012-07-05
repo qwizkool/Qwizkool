@@ -12,9 +12,8 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-var selector = require('./scxml-dynamic-name-match-transition-selector'),
-    ArraySet = require('./set/ArraySet'),
-    m = require('./model');
+define(['exports', 'module', 'require', 'scxml_dynamic_name_match_transition_selector', 'array_set', 'scxml_model'],
+       function (exports, module, require, selector, ArraySet, m) {
 
 module.exports = function(opts) {
     opts = opts || {};
@@ -25,4 +24,5 @@ module.exports = function(opts) {
     opts.model = opts.model || m;
     return opts;
 };
+});
 

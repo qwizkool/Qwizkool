@@ -11,7 +11,9 @@
 //     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //     See the License for the specific language governing permissions and
 //     limitations under the License.
-
+define(['exports', 'module', 'require', 'scxml_dynamic_name_match_transition_selector', 'array_set', 'state_kinds_enum', 'setup_default_opts'],
+       function (exports, module, require, scxmlPrefixTransitionSelector, ArraySet, stateKinds, setupDefaultOpts) {
+		  
 function getDelayInMs(delayString){
     if (!delayString) {
         return 0;
@@ -140,4 +142,4 @@ module.exports = function(json) {
 
     return json;
 };
-
+});

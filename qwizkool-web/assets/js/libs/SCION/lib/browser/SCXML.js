@@ -1,13 +1,11 @@
 //TODO: default send implementation
 //TODO: default script
 //TODO: anything else platform dependent in the interpreter
-
+define(['exports', 'module', 'require', 'core_scxml', 'jsonml_dom', 'annotate_scxml_json', 'json2model'],
+       function (exports, module, require, scxml, JsonML, annotator, json2model) {
+        
 //construct can take path, url, doc, or model
-
-var scxml = require('../core/scxml/SCXML'),
-    JsonML = require('../external/jsonml/jsonml-dom'),
-    annotator = require('../core/util/annotate-scxml-json'),
-    json2model = require('../core/scxml/json2model');
+var test = 'yuiop';
 
 function urlToModel(url,cb){
     window.jQuery.get(url,function(doc){
@@ -55,3 +53,4 @@ module.exports = {
     parseDocumentString : parseDocumentString,
     SCXML : scxml.SimpleInterpreter
 };
+});

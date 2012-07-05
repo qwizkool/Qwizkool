@@ -11,6 +11,8 @@
 //   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
+define(['exports', 'module', 'require'],
+       function (exports, module, require) {
 
 module.exports = {
     BASIC: 0,
@@ -20,3 +22,5 @@ module.exports = {
     INITIAL: 4,
     FINAL: 5
 };
+
+});

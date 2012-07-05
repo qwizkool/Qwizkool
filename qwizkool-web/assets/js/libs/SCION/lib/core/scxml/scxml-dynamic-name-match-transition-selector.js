@@ -11,7 +11,9 @@
 //   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
-
+define(['exports', 'module', 'require'],
+       function (exports, module, require) {
+		  
 var eventNameReCache = {};
 
 function eventNameToRe(name) {
@@ -40,3 +42,4 @@ module.exports = function(state, eventNames, evaluator) {
         return (!t.events || nameMatch(t,eventNames)) && (!t.cond || evaluator(t));
     });
 };
+});

@@ -12,8 +12,9 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-var stateKinds = require('./state-kinds-enum');
-
+define(['exports', 'module', 'require', 'scxml_dynamic_name_match_transition_selector', 'array_set', 'state_kinds_enum', 'setup_default_opts'],
+       function (exports, module, require, scxmlPrefixTransitionSelector, ArraySet, stateKinds, setupDefaultOpts) {
+		  
 module.exports = {
     getAncestors: function(s, root) {
         var ancestors, index, state;
@@ -46,4 +47,4 @@ module.exports = {
         return commonAncestors[0];
     }
 };
-
+});

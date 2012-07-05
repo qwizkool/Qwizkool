@@ -12,9 +12,12 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-
+define(['exports', 'module', 'require'],
+       function (exports, module, require) {
+		  
 module.exports = function(state,eventNames,evaluator){
     return state.transitions.filter(function(t){
         return !t.event || ( eventNames.indexOf(t.event) > -1 && (!t.cond || evaluator(t)) );
     });
 };
+});

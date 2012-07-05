@@ -12,10 +12,8 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-var ArraySet = require('./set/ArraySet'),
-    stateKinds = require('./state-kinds-enum'),
-    setupDefaultOpts = require('./setup-default-opts'),
-    scxmlPrefixTransitionSelector = require('./scxml-dynamic-name-match-transition-selector');
+define(['exports', 'module', 'require', 'scxml_dynamic_name_match_transition_selector', 'array_set', 'state_kinds_enum', 'setup_default_opts'],
+       function (exports, module, require, scxmlPrefixTransitionSelector, ArraySet, stateKinds, setupDefaultOpts) {
 
 function getTransitionWithHigherSourceChildPriority(model) {
     return function(_arg) {
@@ -648,3 +646,4 @@ module.exports = {
     SCXMLInterpreter: SCXMLInterpreter,
     SimpleInterpreter: SimpleInterpreter
 };
+});
