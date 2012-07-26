@@ -27,6 +27,8 @@ function(namespace, Backbone) {
         return urlRootBase;
       } else if (this.action == "login") {
         return urlRootBase + "login/";
+      } else if (this.action == "logout") {
+        return urlRootBase + "logout/";
       } else {
         return urlRootBase;
       }
@@ -41,6 +43,7 @@ function(namespace, Backbone) {
       registrationStatus: "Failed",
       isLoggedIn: false,
       loginAttempted: false,
+      logoutAttempted: false,
       loginStatus: "Failed",    
       pass: 'abc123',
       password: 'abc123',
@@ -105,6 +108,42 @@ function(namespace, Backbone) {
 
           model.set({loginStatus: "Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +"."});
           model.trigger('user-login-event');
+        }
+      });
+  
+      //alert("Model:Completed login "+ this.get('name'));
+      
+    },
+    
+     logout: function() {
+
+
+     userInfo = JSON.parse(localStorage.getItem("qwizkoolUser")); 
+     this.set({name: userInfo.name});
+
+      this.action = "logout";      
+      this.set({logoutAttempted: true});
+      
+       var jqxhr = this.save( { }, {
+      
+        error: function(model, response) {
+          model.set({isLoggedIn: false});
+          model.set({loginStatus: response.statusText});
+          model.trigger('user-logout-event');
+        
+          //alert("Model:Failed to login "+ model.get('name') + " ! " + response.statusText);
+        },
+        
+        success: function(model, response) {
+         // alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are logged in.");
+    
+          model.set({isLoggedIn: false});
+          
+          // Store logged-in user info in persistent
+          localStorage.setItem('qwizkoolUser', JSON.stringify(model));
+
+          model.set({loginStatus: "Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +"."});
+          model.trigger('user-logout-event');
         }
       });
   

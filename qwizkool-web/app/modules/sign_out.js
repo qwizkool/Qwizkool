@@ -1,18 +1,13 @@
-define([
-  "namespace",
+define(["namespace",
 
-  // Libs
-  "use!backbone",
+// Libs
+"use!backbone",
 
-  // Modules
-  "modules/user"
+// Modules
+"modules/user"
 
-  // Plugins
-],
-
-
-
-function(namespace, Backbone, User) {
+// Plugins
+], function(namespace, Backbone, User) {
 
 	// Create a new module
 	var SignOut = namespace.module();
@@ -62,11 +57,10 @@ function(namespace, Backbone, User) {
 		// When the user clicks sign-in, create a new user model and save it
 		signOut : function() {
 
-			//<<TBD>>
 			// Listen for success/fail events
-			//this.model.on('user-logout-event', this.userLogoutEvent, this);
+			this.model.on('user-logout-event', this.userLogoutEvent, this);
 
-			//this.model.logout();
+			this.model.logout();
 
 			alert("user signout : end");
 
