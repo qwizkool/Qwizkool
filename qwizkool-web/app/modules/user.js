@@ -1,28 +1,26 @@
-define([
-	   "namespace",
+define(["namespace",
 
-	   // Libs
-	   "use!backbone"
+// Libs
+"use!backbone"
 
-	   // Modules
+// Modules
 
-	   // Plugins
-],
-function(namespace, Backbone) {
+// Plugins
+], function(namespace, Backbone) {
 
   // Create a new module
   var User = namespace.module();
 
   // User extendings
-  User.Model = Backbone.Model.extend( {
+  User.Model = Backbone.Model.extend({
 
     //Root of the REST url for users
     //urlRoot: "/?q=rest_server/user",
-  
-    urlRoot: function() {
-  
+
+    urlRoot : function() {
+
       urlRootBase = "/webservice/?q=rest_server/user/";
-  
+
       if (this.action == "register") {
         return urlRootBase;
       } else if (this.action == "login") {
@@ -33,158 +31,164 @@ function(namespace, Backbone) {
         return urlRootBase;
       }
     },
-  
-    defaults: {
+
+    defaults : {
       //id: null,
-      name: 'new_user',
-      username: 'new_user',
-      isRegistered: false,
-      registrationAttempted: false,
-      registrationStatus: "Failed",
-      isLoggedIn: false,
-      loginAttempted: false,
-      logoutAttempted: false,
-      loginStatus: "Failed",    
-      pass: 'abc123',
-      password: 'abc123',
-      mail: 'new_user@qwizkool.com',
-      uid: null,
-      uri: 'http://qwizkool.com/webservice/?q=rest_server/user/7',
-      action: 'none'
+      name : 'new_user',
+      username : 'new_user',
+      isRegistered : false,
+      registrationAttempted : false,
+      registrationStatus : "Failed",
+      isLoggedIn : false,
+      loginAttempted : false,
+      logoutAttempted : false,
+      loginStatus : "Failed",
+      pass : 'abc123',
+      password : 'abc123',
+      mail : 'new_user@qwizkool.com',
+      uid : null,
+      uri : 'http://qwizkool.com/webservice/?q=rest_server/user/7',
+      action : 'none',
+      sessid : null,
+      session_name : null
     },
-  
-    initialize: function() {},
+
+    initialize : function() {
       
-    register: function() {
-      
+      userInfo = JSON.parse(localStorage.getItem("qwizkoolUser"));
+      _.extend(this, userInfo);
+    },
+
+    register : function() {
+
       //alert("Register user");
       this.action = "register";
-      this.set( {registrationAttempted: true });
-             
-      var jqxhr = this.save( { }, {
-    
-        error: function(model, response) {
-          model.set( {isRegistered: false });
-          model.set( {registrationStatus: response.statusText });
+      this.set({
+        registrationAttempted : true
+      });
+
+      var jqxhr = this.save({}, {
+
+        error : function(model, response) {
+          model.set({
+            isRegistered : false
+          });
+          model.set({
+            registrationStatus : response.statusText
+          });
           model.trigger('user-registration-event');
-  
+
           // alert("Model:Failed to register "+ model.get('name') + " ! " + response.statusText);
         },
-  
-        success: function(model, response) {
+
+        success : function(model, response) {
           //alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +".");
-      
-          model.set( {isRegistered: true });
-          model.set( {registrationStatus: "Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +"." });
+
+          model.set({
+            isRegistered : true
+          });
+          model.set({
+            registrationStatus : "Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') + "."
+          });
           model.trigger('user-registration-event');
         }
       });
-  
+
     },
-  
-    login: function() {
+
+    login : function() {
       //alert("Login user");
       this.action = "login";
-      
-      this.set({loginAttempted: true});
-      
-      var jqxhr = this.save( { }, {
-      
-        error: function(model, response) {
-          model.set({isLoggedIn: false});
-          model.set({loginStatus: response.statusText});
+
+      this.set({
+        loginAttempted : true
+      });
+
+      var jqxhr = this.save({}, {
+
+        error : function(model, response) {
+          model.set({
+            isLoggedIn : false
+          });
+          model.set({
+            loginStatus : response.statusText
+          });
           model.trigger('user-login-event');
-        
+
           //alert("Model:Failed to login "+ model.get('name') + " ! " + response.statusText);
         },
-        
-        success: function(model, response) {
-         // alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are logged in.");
-    
-          model.set({isLoggedIn: true});
-          
+
+        success : function(model, response) {
+          // alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are logged in.");
+
+          model.set({
+            isLoggedIn : true
+          });
+
           // Store logged-in user info in persistent
           localStorage.setItem('qwizkoolUser', JSON.stringify(model));
 
-          model.set({loginStatus: "Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +"."});
+          model.set({
+            loginStatus : "Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') + "."
+          });
           model.trigger('user-login-event');
         }
       });
-  
+
       //alert("Model:Completed login "+ this.get('name'));
-      
+
     },
-    
-     logout: function() {
 
+    logout : function() {
 
-     userInfo = JSON.parse(localStorage.getItem("qwizkoolUser")); 
-     this.set({name: userInfo.name});
+      this.action = "logout";
+      this.set({
+        logoutAttempted : true
+      });
 
-      this.action = "logout";      
-      this.set({logoutAttempted: true});
-      
-       var jqxhr = this.save( { }, {
-      
-        error: function(model, response) {
-          model.set({isLoggedIn: false});
-          model.set({loginStatus: response.statusText});
+      var jqxhr = this.save({ }, {
+
+        error : function(model, response) {
+          model.set({
+            isLoggedIn : false
+          });
+          model.set({
+            loginStatus : response.statusText
+          });
           model.trigger('user-logout-event');
-        
-          //alert("Model:Failed to login "+ model.get('name') + " ! " + response.statusText);
-        },
-        
-        success: function(model, response) {
-         // alert("Model:Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are logged in.");
-    
-          model.set({isLoggedIn: false});
-          
-          // Store logged-in user info in persistent
-          localStorage.setItem('qwizkoolUser', JSON.stringify(model));
 
-          model.set({loginStatus: "Hello " + model.get('name') + " ! " + "Welcome to QwizKool ! " + "You are user #" + model.get('uid') +"."});
+        },
+
+        success : function(model, response) {
+
+          model.set({
+            isLoggedIn : false
+          });
+
+          // Destroy the logged in user Data.
+          localStorage.setItem('qwizkoolUser', null);
+
+          model.set({
+            loginStatus : "Logged Out",
+            isLoggedIn : false
+          });
           model.trigger('user-logout-event');
         }
       });
-  
-      //alert("Model:Completed login "+ this.get('name'));
-      
+
     }
+  });
+
+  User.Collection = Backbone.Collection.extend({
+
+    model : User.Model,
+    url : "/webservice/?q=rest_server/user"
 
   });
 
+  User.Router = Backbone.Router.extend({/* ... */ });
 
-  User.Collection = Backbone.Collection.extend( {
-  
-    model: User.Model,
-    url: "/webservice/?q=rest_server/user"
-
-  });
-
-  User.Router = Backbone.Router.extend( { /* ... */ });
-
-    /*
-      // This will fetch the tutorial template and render it.
-      User.View = Backbone.View.extend({
-	template: "app/templates/user.html",
-
-	render: function(done) {
-	  var view = this;
-
-	  // Fetch the template, render it to the View element and call done.
-	  namespace.fetchTemplate(this.template, function(tmpl) {
-	    view.el.innerHTML = tmpl();
-
-	    // If a done function is passed, call it with the element
-	    if (_.isFunction(done)) {
-	      done(view.el);
-	    }
-	  });
-	}
-      });
-    */
-
-    // Required, return the module for AMD compliance
-    return User;
+  // Required, return the module for AMD compliance
+  return User;
 
 });
