@@ -16,7 +16,7 @@ require([
   "modules/registration_page",
   "modules/frontpage",
   "modules/header",
-  "modules/sign_out",
+  "modules/user_auth",
   "modules/footer",
   "modules/qwizbook"
 
@@ -74,6 +74,12 @@ function(namespace, $, scion, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain
 		user_main : function(hash) {
 			
 			//alert("user_main invoked");
+			
+			var currentUser = new User.Model();
+			if (currentUser.isUserAuthenticated() === false) {
+			  Backbone.history.navigate("", true);
+			  return;
+			}
 
 		  var front_page = new FrontPage.View();
 

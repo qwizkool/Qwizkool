@@ -7,7 +7,8 @@ define(["namespace",
 "modules/user"
 
 // Plugins
-], function(namespace, Backbone, User) {
+], 
+function(namespace, Backbone, User) {
 
   // Create a new module
   var UserAuth = namespace.module();
@@ -19,24 +20,34 @@ define(["namespace",
 
   // This will fetch the tutorial template and render it.
   UserAuth.View = Backbone.View.extend({
-    template : "app/templates/sign_in_form.html",
+    template : "",
 
     initialize : function() {
       this.model = new User.Model();
+      this.templateSignIn = "app/templates/sign_in_form.html";
+      this.templateSignOut = "app/templates/sign_out.html";
     },
 
     render : function(done) {
       var view = this;
-      var status_template;
-      var full_template;
-      //this.undelegateEvents();
+      var template;
+
+      if (this.model.get('isLoggedIn') === false) {
+        // We need to show sign in template.
+        template = this.templateSignIn;
+      } else {
+        // We need to show sign out template
+        template = this.templateSignOut;
+      }
 
       // Fetch the template, render it to the View element and call done.
-      namespace.fetchTemplate(this.template, function(tmpl) {
+      namespace.fetchTemplate(template, function(tmpl) {
+
         view.el.innerHTML = tmpl();
         if (_.isFunction(done)) {
           done(view.el);
         }
+
       });
 
     },
@@ -83,6 +94,12 @@ define(["namespace",
       "click #signout_button" : "signOut"
     },
 
+    reattachEvents : function() {
+      this.undelegateEvents();
+      this.delegateEvents(this.events);
+
+    },
+
     userLoginEvent : function() {
       if (this.model.get('isLoggedIn') === true) {
 
@@ -102,6 +119,7 @@ define(["namespace",
       if (this.model.get('isLoggedIn') === false) {
         // Go to logged in page.
         Backbone.history.navigate("", true);
+        this.trigger('logout-attempted');
       } else {
         // Trigger event to update status
         this.trigger('logout-attempted');

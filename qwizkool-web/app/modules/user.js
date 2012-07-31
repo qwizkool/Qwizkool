@@ -54,9 +54,37 @@ define(["namespace",
     },
 
     initialize : function() {
-      
+
       userInfo = JSON.parse(localStorage.getItem("qwizkoolUser"));
-      _.extend(this, userInfo);
+      if (userInfo) {
+
+        this.set({
+          name : userInfo.name,
+          username : userInfo.username,
+          isRegistered : userInfo.isRegistered,
+          registrationAttempted : userInfo.registrationAttempted,
+          registrationStatus : userInfo.registrationStatus,
+          isLoggedIn : userInfo.isLoggedIn,
+          loginAttempted : userInfo.loginAttempted,
+          logoutAttempted : userInfo.logoutAttempted,
+          loginStatus : userInfo.loginStatus,
+          pass : userInfo.pass,
+          password : userInfo.password,
+          mail : userInfo.mail,
+          uid : userInfo.uid,
+          uri : userInfo.uri,
+          action : userInfo.action,
+          sessid : userInfo.sessid,
+          session_name : userInfo.session_name
+        });
+
+      }
+
+    },
+
+    isUserAuthenticated: function() {
+      var state = this.get('isLoggedIn');
+      return state;
     },
 
     register : function() {
