@@ -37,6 +37,7 @@ function(namespace, $, scion, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain
 
 		initialize : function() {
 			//this.index();
+			// test line
 		},
 
 		index : function(hash) {
