@@ -42,6 +42,14 @@ function(namespace, $, scion, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain
 
 		index : function(hash) {
 
+
+    
+      var currentUser = new User.Model();
+      if (currentUser.isUserAuthenticated() === true) {
+        Backbone.history.navigate("main", true);
+        return;
+      }
+      
 			var indexPage = new IndexPage.View();
 			indexPage.render();
 			
