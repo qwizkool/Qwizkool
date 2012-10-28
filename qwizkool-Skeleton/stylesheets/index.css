@@ -3,9 +3,17 @@
 
 /* Base styling */
 @import "base.css";
+    /* tabs styling */
+@import "tabs.css";
 
 /* Skeleton specific styling */
 @import "skeleton.css";
 
 /* Application specific styling */
 @import "layout.css";
+
+/* Application specific styling */
+@import "css3-buttons.css";
+
+/* Application specific styling */
+@import "tiptip.css";

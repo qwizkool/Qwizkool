@@ -8,8 +8,8 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html lang="en" itemscope itemtype="http://schema.org/Organization">
 <!--<![endif]-->
-<head>
 
+<head>
     <!-- Basic Page Needs
         ================================================== -->
     <meta charset="utf-8">
@@ -38,9 +38,40 @@
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-</head>
-<body>
 
+    <!-- Using TipTip jQuery plugin for the tooltips -->
+    <!--TODO-- Move this all to the backbone> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="javascripts/jquery.tiptip.js"></script>
+    <script src="javascripts/tabs.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Launch TipTip tooltip
+            $('.tiptip a.guibutton, .tiptip guibutton').tipTip();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Toggle the dropdown menu's
+            $(".dropdown .guibutton, .dropdown guibutton").click(function () {
+                $(this).parent().find('.dropdown-slider').slideToggle('fast');
+                $(this).find('span.toggle').toggleClass('active');
+                return false;
+            });
+        }); // END document.ready
+
+        // Close open dropdown slider/s by clicking elsewhwere on page
+        $(document).bind('click', function (e) {
+            if (e.target.id != $('.dropdown').attr('class')) {
+                $('.dropdown-slider').slideUp();
+                $('span.toggle').removeClass('active');
+            }
+        }); // END document.bind
+    </script>
+</head>
+
+<body>
 
 <div class="container">
     <div id="qwizkool-header" class="row">
@@ -52,7 +83,7 @@
 
     <div id="qwizkool-content" class="row">
         <div id="qwizkool-content-side" class="ten columns add-bottom">
-            <div class="nine columns offset-by-two">
+            <div class="nine columns offset-by-one">
                 <hgroup>
                     <h2> Learning Redefined.</h2>
                 </hgroup>
@@ -62,10 +93,10 @@
             </figure>
             <div class="band social_connection eight columns offset-by-one">
                 <div class="row clearfix">
-                    <div class="six columns clearfix">
+                    <div class="six columns clearfix offset-by-one">
                         <h1 class="connect">Connect with us</h1>
                     </div>
-                    <div class="six columns clearfix">
+                    <div class="six columns clearfix offset-by-one">
                         <div class="two columns alpha">
                             <h1 class="logo_facebook"><a href=""> Facebook</a></h1>
                         </div>
@@ -80,15 +111,16 @@
             </div>
         </div>
         <div id="qwizkool-sign-in" class="six columns">
-            <div id="sign-in-form" class="row">
+            <div id="sign-in-form" class="row panel-style">
                 <div class="row remove-bottom">
                     <input class="text email" type="text" placeholder="Email" id="user-email-input" autofocus required/>
-                    <input class="text password" type="password" placeholder="Password" id="user-password-input" required/>
+                    <input class="text password" type="password" placeholder="Password" id="user-password-input"
+                           required/>
                     <button class="full-width button" id="signin-button">
                         Sign In
                     </button>
                 </div>
-                 <div class="offset-by-three">
+                <div class="offset-by-three">
                     <a href="#" class="forgot_link">Forgot Password?</a>
                 </div>
                 <div class="row" id="login-status"></div>
@@ -98,7 +130,7 @@
                     <h4> Sign up and see for yourself.</h4>
                 </hgroup>
             </div>
-            <div id="reg-in-form" class="row">
+            <div id="reg-in-form" class="row panel-style">
                 <div class="row remove-bottom">
                     <input class="text user" type="text" placeholder="Username" id="user-name-input"/>
                     <input class="text email" type="text" placeholder="Email" id="user-id-input"/>
@@ -126,7 +158,7 @@
 
     <div id="qwizkool-footer" class="row">
         <hr/>
-        <div id="qwizkool-footer-content" class="ten columns offset-by-three">
+        <div id="qwizkool-footer-content" class="ten columns offset-by-four">
             <a href="#contact">Contact</a>
             <span class="sep">|</span>
             <a href="#report-problem">Report a Problem</a>
@@ -143,53 +175,6 @@
 
 </div>
 
-
-<!-- JS================================================== -->
-<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script src="javascripts/tabs.js"></script>
-
-
-<script>
-    !function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (!d.getElementById(id)) {
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }
-    }(document, "script", "twitter-wjs");
-</script>
-
-<!-- Place this render call where appropriate -->
-<script type="text/javascript">
-    (function () {
-        var po = document.createElement('script');
-        po.type = 'text/javascript';
-        po.async = true;
-        po.src = 'https://apis.google.com/js/plusone.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(po, s);
-    })();
-</script>
-
-<div id="fb-root"></div>
-<script>
-    ( function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id))
-            return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-
-<!-- End Document
-  ================================================== -->
-
-<!-- End Document
-================================================== -->
 </body>
+
 </html>

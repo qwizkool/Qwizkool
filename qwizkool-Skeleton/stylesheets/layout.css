@@ -16,9 +16,24 @@
 
 /* #Site Styles
 ================================================== */
+#qwizkool-header {
+
+}
+
 #qwizkool-toolbar {
-    background-color: #CCC;
-    height: 80px;
+
+}
+
+#qwizkool-int-header {
+
+}
+
+#qwizkool-user-settings {
+}
+
+#qwizkool-user-settings .guibuttons{
+
+    float: right;
 }
 
 #qwizkool-content-side {
@@ -70,28 +85,23 @@ button#register-button{
     font-size: 14px;
     color: #2b7ebe;
 }
+
+.panel-style {
+background: #FFF;
+padding: 10px;
+border: thin solid #d0d0d0; /* This is the outer border, inner border will be added to the div contained within*/
+border-radius: 8px; /* Add rounded corners to the form*/
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
+box-shadow: 0px 1px 3px #888; /* Add shadow to the form – First two values are shadow offset, third is blur radius*/
+-webkit-box-shadow: 0px 1px 3px #888;
+-moz-box-shadow: 0px 1px 3px #888;
+}
+
 #sign-in-form {
-    background: #FFF;
-    padding: 10px;
-    border: thin solid #d0d0d0; /* This is the outer border, inner border will be added to the div contained within*/
-    border-radius: 8px; /* Add rounded corners to the form*/
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    box-shadow: 0px 1px 3px #888; /* Add shadow to the form – First two values are shadow offset, third is blur radius*/
-    -webkit-box-shadow: 0px 1px 3px #888;
-    -moz-box-shadow: 0px 1px 3px #888;
 }
 
 #reg-in-form {
-    background: #FFF;
-    padding: 10px;
-    border: thin solid #d0d0d0; /* This is the outer border, inner border will be added to the div contained within*/
-    border-radius: 8px; /* Add rounded corners to the form*/
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    box-shadow: 0px 1px 3px #888; /* Add shadow to the form – First two values are shadow offset, third is blur radius*/
-    -webkit-box-shadow: 0px 1px 3px #888;
-    -moz-box-shadow: 0px 1px 3px #888;
 }
 
 #qwizkool-info-left {
@@ -158,6 +168,56 @@ button#register-button{
     font-weight: bold;
 
 }
+
+.side-panel-header-style {
+    background: #f5f5f5;;
+    padding: 10px;
+    border: thin solid #d0d0d0; /* This is the outer border, inner border will be added to the div contained within*/
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    -moz-border-radius-topleft: 8px;
+    -moz-border-radius-topright: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0px 1px 3px #888; /* Add shadow to the form – First two values are shadow offset, third is blur radius*/
+    -webkit-box-shadow: 0px 1px 3px #888;
+    -moz-box-shadow: 0px 1px 3px #888;
+}
+
+
+.side-panel-style {
+    background: #FFF;
+    padding: 10px;
+    border: thin solid #d0d0d0; /* This is the outer border, inner border will be added to the div contained within*/
+    -webkit-border-bottom-right-radius: 8px;
+    -webkit-border-bottom-left-radius: 8px;
+    -moz-border-radius-bottomright: 8px;
+    -moz-border-radius-bottomleft: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    box-shadow: 0px 1px 3px #888; /* Add shadow to the form – First two values are shadow offset, third is blur radius*/
+    -webkit-box-shadow: 0px 1px 3px #888;
+    -moz-box-shadow: 0px 1px 3px #888;
+}
+
+.qwizbook-panel-style {
+    background: #FFF;
+    padding: 10px;
+    border: thin solid #d0d0d0; /* This is the outer border, inner border will be added to the div contained within*/
+    box-shadow: 0px 1px 3px #888; /* Add shadow to the form – First two values are shadow offset, third is blur radius*/
+    -webkit-box-shadow: 0px 1px 3px #888;
+    -moz-box-shadow: 0px 1px 3px #888;
+}
+
+
+input.search {
+    background: url(../images/search.png) no-repeat;
+    width: 84%;
+    font-size: 14px;
+    padding-left: 36px;
+    height: 28px;
+}
+
 /* For scaling the emdedded video
 firstly we deal with the container element
 making it relatively positioned
