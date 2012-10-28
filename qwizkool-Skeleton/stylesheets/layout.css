@@ -209,13 +209,29 @@ box-shadow: 0px 1px 3px #888; /* Add shadow to the form – First two values are
     -moz-box-shadow: 0px 1px 3px #888;
 }
 
+#qwizkool-major-category-list li a {
+    text-decoration: none;
+    text-;
+}
+
+#qwizkool-major-category-list li a:hover {
+    color: #007bc4;
+}
 
 input.search {
     background: url(../images/search.png) no-repeat;
-    width: 84%;
+    width: 80%;
     font-size: 14px;
     padding-left: 36px;
     height: 28px;
+}
+
+.qwizbook-list-item-content {
+    min-height: 100px;
+}
+
+.qwizbook-list-item-footer button {
+    float: right;
 }
 
 /* For scaling the emdedded video

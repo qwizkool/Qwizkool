@@ -5,3 +5,4 @@ build/node_modules/grunt/node_modules/glob/build
 _notes/
 .project
 .idea
+.DS_Store

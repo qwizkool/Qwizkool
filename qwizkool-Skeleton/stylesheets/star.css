@@ -1,0 +1,55 @@
+/* ---------- Some general styles ---------- */
+
+.ratings-container {
+
+    text-align: center;
+}
+
+.ratings-container ul, ol, li {
+    list-style: none;
+}
+
+.ratings-container ul, ol {
+    margin-bottom: 36px;
+}
+
+
+@font-face {
+    font-family: 'WebSymbolsRegular';
+    src: url('../fonts/websymbols-regular-webfont.eot');
+    src: url('../fonts/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/websymbols-regular-webfont.woff') format('woff'), url('../fonts/websymbols-regular-webfont.ttf') format('truetype'), url('../fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+}
+
+/* ---------- Lists ---------- */
+.rating-w-fonts li {
+    font: 18px/36px 'WebSymbolsRegular', sans-serif;
+    display: inline;
+
+    color: #202124;
+    text-shadow: 1px 1px 0px #323439;
+
+    cursor: pointer;
+}
+
+.rating-w-fonts li.rated, .rating-w-fonts li:hover {
+    color: #007bc4;
+}
+
+.rating-w-images li {
+    width: 27px;
+    height: 30px;
+    background: transparent url('../images/star-sprites.png') no-repeat -54px 0;
+    display: inline-block;
+
+    cursor: pointer;
+}
+
+.rating-w-images li.rated, .rating-w-images li:hover,
+.rating-w-images li.half-rated:hover {
+    background-position: 0 0;
+}
+
+.rating-w-images li.half-rated {
+    background-position: -27px 0;
+}
+
