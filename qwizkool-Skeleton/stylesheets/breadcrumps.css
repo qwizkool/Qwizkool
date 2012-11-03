@@ -6,18 +6,18 @@
 }
 
 #breadcrumbs {
-    height:2.7em;
+    height:auto;
     /*TODO: how to make this work for mobile size*/
     /*border:1px solid #c9c9c9;*/
 }
 #breadcrumbs li {
     float:left;
-    line-height:2.7em;
+    line-height:auto;
     color:#777;
     padding-left:.85em;
 }
 #breadcrumbs li a {
-    background: url(../images/breadcrumps.jpg) no-repeat right center;
+    background: url(../images/breadcrumps.png) no-repeat right center;
     display:block;
     padding:0 15px 0 0;
 }
