@@ -44,12 +44,6 @@
     /*background-color: #CCC;*/
 }
 
-#qwizkool-main-image img {
-    max-width: 100%;
-    height: auto;
-
-}
-
 #qwizkool-sign-in {
     /*background-color: #CCC;*/
 }
@@ -232,6 +226,29 @@ input.search {
 
 .qwizbook-list-item-footer button {
     float: right;
+}
+
+.qwizbook-item-content {
+
+}
+
+.qwizbook-item-footer button {
+    float: right;
+}
+
+.qwizbook-ratings-container {
+    float: left;
+}
+
+#qwizbook-main-image{
+
+}
+
+
+/* Generic scaled image */
+.scaled-image {
+    max-width: 100%;
+    height: auto;
 }
 
 /* For scaling the emdedded video

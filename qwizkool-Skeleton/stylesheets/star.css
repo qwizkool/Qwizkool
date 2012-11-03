@@ -1,15 +1,15 @@
 /* ---------- Some general styles ---------- */
 
-.ratings-container {
+.qwizbook-ratings-container {
 
     text-align: center;
 }
 
-.ratings-container ul, ol, li {
+.qwizbook-ratings-container ul, ol, li {
     list-style: none;
 }
 
-.ratings-container ul, ol {
+.qwizbook-ratings-container ul, ol {
     margin-bottom: 36px;
 }
 
