@@ -39,36 +39,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 
-    <!-- Using TipTip jQuery plugin for the tooltips -->
-    <!--TODO-- Move this all to the backbone> -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="javascripts/jquery.tiptip.js"></script>
-    <script src="javascripts/tabs.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Launch TipTip tooltip
-            $('.tiptip a.guibutton, .tiptip guibutton').tipTip();
-        });
-    </script>
 
-    <script>
-        $(document).ready(function() {
-            // Toggle the dropdown menu's
-            $(".dropdown .guibutton, .dropdown guibutton").click(function () {
-                $(this).parent().find('.dropdown-slider').slideToggle('fast');
-                $(this).find('span.toggle').toggleClass('active');
-                return false;
-            });
-        }); // END document.ready
-
-        // Close open dropdown slider/s by clicking elsewhwere on page
-        $(document).bind('click', function (e) {
-            if (e.target.id != $('.dropdown').attr('class')) {
-                $('.dropdown-slider').slideUp();
-                $('span.toggle').removeClass('active');
-            }
-        }); // END document.bind
-    </script>
 </head>
 
 <body>
