@@ -227,20 +227,44 @@ input.search {
     float: right;
 }
 
-.qwizbook-item-content {
 
-}
 
-.qwizbook-item-footer button {
-    float: right;
+.qwizbook-details button {
+    float: left;
 }
 
 .qwizbook-ratings-container {
     float: left;
 }
 
+
+/* Qwizbook */
+
 #qwizbook-main-image{
 
+}
+
+
+.qwizbook-footer {
+
+    padding: 5px;
+}
+
+
+.qwizbook-footer .qwizbook-rated-container {
+   float: left;
+}
+.qwizbook-footer .qwizbook-to-be-rated-container {
+    float: right;
+}
+
+
+.qwizbook-rated-container .rater {
+    margin: 0px;
+}
+
+.qwizbook-to-be-rated-container .rater {
+    margin: 0px;
 }
 
 

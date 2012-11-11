@@ -10,6 +10,8 @@
 }
 
 .qwizbook-ratings-container ul, ol {
+    margin-left: 0px;
+    margin-right: 0px;
     margin-bottom: 36px;
 }
 

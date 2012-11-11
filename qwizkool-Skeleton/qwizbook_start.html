@@ -108,184 +108,250 @@
 </div>
 
 <!--Tab Bar-->
-<div id="qwizkool-tabbar" class="row">
+<div id="qwizkool-tabbar" class="container">
 
-    <!-- TAB HEADER -->
-    <ul class="tabs clearfix ">
-        <!-- Give href an ID value of corresponding "tabs-content" <li>'s -->
-        <li>
-            <a data-bypass class="active" href="#qwizkool-home"><strong>Home</strong></a>
-        </li>
-        <li>
-            <a data-bypass href="#qwizkool-library"><strong>Library</strong></a>
-        </li>
-        <li>
-            <a data-bypass href="#qwizkool-author"><strong>Create a Qwizbook</strong></a>
-        </li>
-        <li>
-            <a data-bypass href="#qwizkool-achievements"><strong>Achievements</strong></a>
-        </li>
-        <li>
-            <a data-bypass href="#qwizkool-bookmarks"><strong>Bookmarks</strong></a>
-        </li>
-    </ul>
+<!-- TAB HEADER -->
+<ul class="tabs clearfix ">
+    <!-- Give href an ID value of corresponding "tabs-content" <li>'s -->
+    <li>
+        <a data-bypass class="active" href="#qwizkool-home"><strong>Home</strong></a>
+    </li>
+    <li>
+        <a data-bypass href="#qwizkool-library"><strong>Library</strong></a>
+    </li>
+    <li>
+        <a data-bypass href="#qwizkool-author"><strong>Create a Qwizbook</strong></a>
+    </li>
+    <li>
+        <a data-bypass href="#qwizkool-achievements"><strong>Achievements</strong></a>
+    </li>
+    <li>
+        <a data-bypass href="#qwizkool-bookmarks"><strong>Bookmarks</strong></a>
+    </li>
+</ul>
 
-    <!-- TAB CONTENT Give ID that matches HREF of above anchors -->
-    <ul class="tabs-content clearfix user-main-tab-content">
+<!-- TAB CONTENT Give ID that matches HREF of above anchors -->
+<ul class="tabs-content clearfix user-main-tab-content">
 
-        <!--Home Page-->
-        <li class="active clearfix" id="qwizkool-home">
+<!--Home Page-->
+<li class="active clearfix" id="qwizkool-home">
 
 
-            <!--Side left panel-->
-            <div id="qwizkool-home-content-left" class="four columns alpha clearfix">
+    <!--Side left panel-->
+    <div id="qwizkool-home-content-left" class="four columns alpha clearfix">
 
-                <div class="row panel">
-                    <div class="row panel-header side-panel-header-style remove-bottom">
-                        <div><h6><strong>Search Qwizbooks</strong></h6></div>
-                    </div>
-                    <div class="row panel-container side-panel-style">
-                        <div class="row remove-bottom">
-                            <input class="text search" type="text" placeholder="Search Qwizkool"
-                                   id="user-search-input"
-                                   autofocus required/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row panel">
-                    <div class="row panel-header side-panel-header-style remove-bottom">
-                        <div><h6><strong>Same author</strong></h6></div>
-                    </div>
-                    <div class="row panel-container side-panel-style">
-                        <div class="row remove-bottom">
-                            <ul id="qwizkool-same-author-list">
-                                <li><strong><a href="#">Arts</a></strong></li>
-                                <li><strong><a href="#">Business</a></strong></li>
-                                <li><strong><a href="#">Education</a></strong></li>
-                                <li><strong><a href="#">Engineering</a></strong></li>
-                                <li><strong><a href="#">Health and Human Services</a></strong></li>
-                                <li><strong><a href="#">Hospitality, Sport & Recreation Management</a></strong></li>
-                                <li><strong><a href="#">Liberal Arts - Humanities</a></strong></li>
-                                <li><strong><a href="#">Media - Communications</a></strong></li>
-                                <li><strong><a href="#">Science & Math</a></strong></li>
-                                <li><strong><a href="#">Social Sciences </a></strong></li>
-                                <li><strong><a href="#">Technology - Communications</a></strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row panel">
-                    <div class="row panel-header side-panel-header-style remove-bottom">
-                        <div><h6><strong>Similiar Qwizbooks</strong></h6></div>
-                    </div>
-                    <div class="row panel-container side-panel-style">
-                        <div class="row remove-bottom">
-                            <ul id="qwizkool-same-category-list">
-                                <li><strong><a href="#">Arts</a></strong></li>
-                                <li><strong><a href="#">Business</a></strong></li>
-                                <li><strong><a href="#">Education</a></strong></li>
-                                <li><strong><a href="#">Engineering</a></strong></li>
-                                <li><strong><a href="#">Health and Human Services</a></strong></li>
-                                <li><strong><a href="#">Hospitality, Sport & Recreation Management</a></strong></li>
-                                <li><strong><a href="#">Liberal Arts - Humanities</a></strong></li>
-                                <li><strong><a href="#">Media - Communications</a></strong></li>
-                                <li><strong><a href="#">Science & Math</a></strong></li>
-                                <li><strong><a href="#">Social Sciences </a></strong></li>
-                                <li><strong><a href="#">Technology - Communications</a></strong></li>
-                            </ul>
-                        </div>
-                    </div>
+        <div class="row panel">
+            <div class="row panel-header side-panel-header-style remove-bottom">
+                <div><h6><strong>Search Qwizbooks</strong></h6></div>
+            </div>
+            <div class="row panel-container side-panel-style">
+                <div class="row remove-bottom">
+                    <input class="text search" type="text" placeholder="Search Qwizkool"
+                           id="user-search-input"
+                           autofocus required/>
                 </div>
             </div>
+        </div>
 
-            <!--Side Right panel-->
-            <div id="qwizkool-home-content-right" class="twelve columns omega clearfix">
+        <div class="row panel">
+            <div class="row panel-header side-panel-header-style remove-bottom">
+                <div><h6><strong>Same author</strong></h6></div>
+            </div>
+            <div class="row panel-container side-panel-style">
+                <div class="row remove-bottom">
+                    <ul id="qwizkool-same-author-list">
+                        <li><strong><a href="#">Arts</a></strong></li>
+                        <li><strong><a href="#">Business</a></strong></li>
+                        <li><strong><a href="#">Education</a></strong></li>
+                        <li><strong><a href="#">Engineering</a></strong></li>
+                        <li><strong><a href="#">Health and Human Services</a></strong></li>
+                        <li><strong><a href="#">Hospitality, Sport & Recreation Management</a></strong></li>
+                        <li><strong><a href="#">Liberal Arts - Humanities</a></strong></li>
+                        <li><strong><a href="#">Media - Communications</a></strong></li>
+                        <li><strong><a href="#">Science & Math</a></strong></li>
+                        <li><strong><a href="#">Social Sciences </a></strong></li>
+                        <li><strong><a href="#">Technology - Communications</a></strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-                <!--Side Right header-->
-                <div id="home-content-header" class="row side-panel-header-style remove-bottom">
-                    <!--Breadcrump-->
-                    <div class="row breadcrump-container">
-                        <ul id="breadcrumbs">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Main Category</a></li>
-                            <li><a href="#">Sub Category</a></li>
-                            <li><a href="#">Sub Sub Category</a></li>
-                            <li>Your Current Qwizbook</li>
+        <div class="row panel">
+            <div class="row panel-header side-panel-header-style remove-bottom">
+                <div><h6><strong>Similiar Qwizbooks</strong></h6></div>
+            </div>
+            <div class="row panel-container side-panel-style">
+                <div class="row remove-bottom">
+                    <ul id="qwizkool-same-category-list">
+                        <li><strong><a href="#">Arts</a></strong></li>
+                        <li><strong><a href="#">Business</a></strong></li>
+                        <li><strong><a href="#">Education</a></strong></li>
+                        <li><strong><a href="#">Engineering</a></strong></li>
+                        <li><strong><a href="#">Health and Human Services</a></strong></li>
+                        <li><strong><a href="#">Hospitality, Sport & Recreation Management</a></strong></li>
+                        <li><strong><a href="#">Liberal Arts - Humanities</a></strong></li>
+                        <li><strong><a href="#">Media - Communications</a></strong></li>
+                        <li><strong><a href="#">Science & Math</a></strong></li>
+                        <li><strong><a href="#">Social Sciences </a></strong></li>
+                        <li><strong><a href="#">Technology - Communications</a></strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Side Right panel-->
+    <div id="qwizkool-home-content-right" class="twelve columns omega clearfix ">
+
+        <!--Side Right header-->
+        <div id="home-content-header" class="row side-panel-header-style remove-bottom">
+            <!--Breadcrump-->
+            <div class="breadcrump-container clearfix">
+                <ul id="breadcrumbs">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Main Category</a></li>
+                    <li><a href="#">Sub Category</a></li>
+                    <li><a href="#">Sub Sub Category</a></li>
+                    <li>Your Current Qwizbook</li>
+                </ul>
+            </div>
+        </div>
+
+        <!--Side Right Content-->
+        <div id="home-content-container" class=" row side-panel-style ">
+
+            <!--Qwizbook List Item-->
+            <div class="remove-bottom qwizbook-item">
+
+                <div class="qwizbook-header">
+                    <div><h3>Title</h3></div>
+                </div>
+
+                <div class="qwizbook-item-content clearfix">
+
+                    <div id="qwizbook-main-image" class="three columns ">
+                        <img class="scaled-image" src="images/placeholder.png"/>
+                    </div>
+                    <div class="row qwizbook-details">
+                        <div>
+                            <div><h4>Description:</h4></div>
+                            <div>Donec imperdiet egestas lorem, nec feugiat eros gravida et. Pellentesque
+                                ultricies
+                                consectetur tortor, sit amet hendrerit nibh faucibus ac. Integer imperdiet, leo
+                                ut
+                                pretium mollis, quam sem malesuada magna, et sollicitudin risus tortor quis
+                                tellus.
+                                Nunc convallis laoreet mi, in ullamcorper dui molestie quis. Lorem ipsum dolor
+                                sit
+                                amet, consectetur adipiscing elit. Nullam sit amet posuere nulla. Nulla molestie
+                                aliquet tellus sed tristique. Duis pretium, sapien sed venenatis porttitor, nisl
+                                sem fringilla risus, ac ultricies neque quam vel massa.
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row qwizbook-footer">
+                    <div class="qwizbook-rated-container">
+                        <h5>Average rating:</h5>
+                        <ul class="rater rating-w-fonts">
+                            <li class="rated">R</li>
+                            <li class="rated">R</li>
+                            <li class="rated">R</li>
+                            <li>R</li>
+                            <li>R</li>
                         </ul>
                     </div>
+                    <div class="qwizbook-to-be-rated-container">
+                        <h5>Click to rate:</h5>
+                        <ul class="rater rating-w-fonts">
+                            <li class="rated">R</li>
+                            <li class="rated">R</li>
+                            <li class="rated">R</li>
+                            <li>R</li>
+                            <li>R</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <button class="full-width">
+                    <h4>Start</h4>
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!--Side Right header-->
+        <div id="review-content-header" class="row side-panel-header-style remove-bottom">
+            <div><h4> Reviews</h4></div>
+            <button style="float: right">Write a review</button>
+        </div>
+
+        <!--Side Right Content-->
+        <div id="review-content-container" class=" side-panel-style remove-bottom">
+
+            <!--Qwizbook review Item-->
+            <div class="row remove-bottom qwizbook-review-item qwizbook-panel-style">
+
+
+
+
+                <div class="row  qwizbook-review-item-header">
+                        <div class="row" > <strong>Title saddassadasdsadsadsadasdsada sdsadsadasdasdasdasdsadsadsadas</strong> by reviewer, Nov 11, 2012</div>
+                        <div class="qwizbook-ratings-container">
+                            <ul class="rating-w-fonts" style="margin-bottom: 0px">
+                                <li class="rated">R</li>
+                                <li class="rated">R</li>
+                                <li class="rated">R</li>
+                                <li>R</li>
+                                <li>R</li>
+                            </ul>
+                        </div>
+
                 </div>
 
-                <!--Side Right Content-->
-                <div id="home-content-container" class=" side-panel-style remove-bottom">
-
-                    <!--Qwizbook List Item-->
-                    <div class="row remove-bottom qwizbook-item">
-
-                        <div class="row  qwizbook-header">
-                            <div><h3>Title</h3></div>
-                        </div>
-
-                        <div class="row qwizbook-item-content">
-
-                            <div id="qwizbook-main-image" class="three columns ">
-                                <img class="scaled-image" src="images/placeholder.png"/>
-                            </div>
-                            <div class="nine columns qwizbook-details">
-                                <div>
-                                    <div><h4>Description:</h4></div>
-                                    <div>Donec imperdiet egestas lorem, nec feugiat eros gravida et. Pellentesque
-                                        ultricies
-                                        consectetur tortor, sit amet hendrerit nibh faucibus ac. Integer imperdiet, leo
-                                        ut
-                                        pretium mollis, quam sem malesuada magna, et sollicitudin risus tortor quis
-                                        tellus.
-                                        Nunc convallis laoreet mi, in ullamcorper dui molestie quis. Lorem ipsum dolor
-                                        sit
-                                        amet, consectetur adipiscing elit. Nullam sit amet posuere nulla. Nulla molestie
-                                        aliquet tellus sed tristique. Duis pretium, sapien sed venenatis porttitor, nisl
-                                        sem fringilla risus, ac ultricies neque quam vel massa.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="row qwizbook-list-item-footer">
-                            <div class="qwizbook-ratings-container">
-                                <ul class="rating-w-fonts">
-                                    <li class="rated">R</li>
-                                    <li class="rated">R</li>
-                                    <li class="rated">R</li>
-                                    <li>R</li>
-                                    <li>R</li>
-                                </ul>
-                            </div>
-                            <button>Open</button>
-                        </div>
-
+                <div class="row qwizbook-review-item-content">
+                    <div>Donec imperdiet egestas lorem, nec feugiat eros gravida et. Pellentesque ultricies
+                        consectetur tortor, sit amet hendrerit nibh faucibus ac. Integer imperdiet, leo ut
+                        pretium mollis, quam sem malesuada magna, et sollicitudin risus tortor quis tellus.
+                        Nunc convallis laoreet mi, in ullamcorper dui molestie quis. Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit. Nullam sit amet posuere nulla. Nulla molestie
+                        aliquet tellus sed tristique. Duis pretium, sapien sed venenatis porttitor, nisl
+                        sem fringilla risus, ac ultricies neque quam vel massa.
                     </div>
+                </div>
+
+                <div class="row qwizbook-review-item-footer">
 
                 </div>
 
             </div>
 
-        </li>
 
-        <li id="qwizkool-library">
-            Qwizkool user Library panel.
-        </li>
-        <li id="qwizkool-author">
-            Qwizkool authoring panel.
-        </li>
-        <li id="qwizkool-achievements">
-            Qwizkool achievements panel.
-        </li>
-        <li id="qwizkool-bookmarks">
-            Qwizkool book marks panel
-        </li>
-    </ul>
+        </div>
+
+
+    </div>
+
+</li>
+
+<li id="qwizkool-library">
+    Qwizkool user Library panel.
+</li>
+<li id="qwizkool-author">
+    Qwizkool authoring panel.
+</li>
+<li id="qwizkool-achievements">
+    Qwizkool achievements panel.
+</li>
+<li id="qwizkool-bookmarks">
+    Qwizkool book marks panel
+</li>
+</ul>
 
 </div>
 
