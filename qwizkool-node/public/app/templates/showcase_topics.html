@@ -1,0 +1,36 @@
+<div class="band showcase_topics">
+  <div  class="row clearfix">
+    <div class="sixteen columns add-bottom clearfix">
+      <h5 class="header">Check out the wide variety of topics and categories available.</h5>
+    </div>
+    <div class="sixteen columns add-bottom clearfix"> 
+      <!-- Standard <ul> with class of "tabs" --> 
+      <!-- NOTE: jQuery that fires the change is in tabs.js -->
+      <ul class="tabs">
+        <!-- Give href an ID value of corresponding "tabs-content" <li>'s -->
+        <li><a data-bypass class="active" href="#featured"><strong>Featured</strong></a></li>
+        <li><a data-bypass href="#most_popular"><strong>Most Popular</strong></a></li>
+        <li><a data-bypass href="#recently_added"><strong>Recently Added</strong></a></li>
+      </ul>
+      
+      <!-- Standard <ul> with class of "tabs-content" -->
+      <ul class="tabs-content">
+        <!-- Give ID that matches HREF of above anchors -->
+        <li class="active" id="featured">
+          <div class="sixteen columns clearfix add-bottom">
+            <div class="four columns alpha"> category 1 </div>
+            <div class="four columns "> category 2 </div>
+            <div class="four columns "> category 3 </div>
+            <div class="four columns omega"> category 4 </div>
+          </div>
+        </li>
+        <li id="most_popular">Most popular content.</li>
+        <li id="recently_added">Recently added content.</li>
+      </ul>
+    </div>
+    <div class="two columns offset-by-twelve" >
+      <h4 class="more_info"><a href=""> See More</a></h4>
+    </div>
+    <hr/>
+  </div>
+</div>

@@ -1,0 +1,252 @@
+/*
+* Skeleton V1.1
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 8/17/2011
+*/
+
+/* Table of Content
+==================================================
+	#Site Styles
+	#Page Styles
+	#Media Queries
+	#Font-Face */
+
+/* #Site Styles
+================================================== */
+#qwizkool_page {
+	background: #FFF;
+}
+
+/* override the skeleton fonts */
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Lato', sans-serif, "Georgia", "Times New Roman", serif;	
+}
+
+/* #Page Styles #08C
+================================================== */
+
+.band.header .logo{
+	margin-left:0px;
+	padding:0px;
+	
+	
+}
+
+.band.header .logo a{
+	width:250px;
+	height:90px;
+	display:block;
+	background:url(../img/qwizkool-logo.png) no-repeat;
+	
+	/* to hide text of the link */
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.band.header .button{
+	margin-top:20px;
+		
+}
+
+.band.qwizkool_main .header, .footer {
+  color:#08C;
+}
+
+.band.qwizkool_main h2 {
+	font-weight: 300;
+}
+
+
+
+.band.qwizkool_registration .header, .footer {
+  color:#08C;
+}
+
+.band.qwizkool_registration .registration_form a {
+  color:#000;
+}
+
+
+.band.qwizkool_registration #registration-status .error {
+  color:#ff0000;
+}
+
+.band.qwizkool_registration #registration-status .success {
+  color:#08C;
+}
+
+.sign_in_form #login-status .error {
+  color:#ff0000;
+}
+
+.sign_in_form #login-status .success {
+  color:#08C;
+}
+
+.band.qwizkool_registration .microcopy {
+  font-weight: 100;
+}
+
+
+.band.social_connection .connect {
+	color:#C0C0C0;
+}
+
+.band.social_connection .logo_facebook a{
+	width:70px;
+	height:70px;
+	display:block;
+	background: url(../img/f_logo.png) no-repeat;
+	
+	/* to hide text of the link */
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.band.social_connection .logo_googleplus a{
+	width:70px;
+	height:70px;
+	display:block;
+	background: url(../img/gplusicon_large.png) no-repeat;
+	
+	/* to hide text of the link */
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.band.social_connection .logo_twitter a{
+	width:70px;
+	height:70px;
+	display:block;
+	background: url(../img/twitter_newbird_boxed_whiteonblue.png) no-repeat;
+	
+	/* to hide text of the link */
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.band.showcase_tutorial .header, .footer, strong {
+  color:#08C;
+}
+
+/* For scaling the emdedded video
+firstly we deal with the container element
+making it relatively positioned
+and defining its height proportionally
+to its width - giving us a 16:9 ratio
+*/
+.embed {
+    position: relative;
+    padding: 0;
+    padding-bottom: 56.25%; /* 16:9 ratio*/
+    height: 0;
+    overflow: hidden;
+}
+ 
+/*
+then we make the actual embedded content
+behave in terms of its dimensions
+and its position within the container
+*/
+.embed iframe,
+.embed object,
+.embed embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.band.showcase_topics .header, .more_info a {
+  color:#08C;
+}
+
+footer a {
+	display:inline;
+	text-decoration:none;
+	border-bottom:thin;
+    border-bottom-color:000;
+}
+
+footer a:hover, h5 {
+  color:#08C;
+}
+
+
+.registration-form {
+	background: #FFF;
+	padding: 10px;
+	border: thin solid #d0d0d0; /* This is the outer border, inner border will be added to the div contained within*/
+	border-radius: 8px; /* Add rounded corners to the form*/
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	box-shadow: 0px 3px 7px #888; /* Add shadow to the form – First two values are shadow offset, third is blur radius*/
+	-webkit-box-shadow: 0px 3px 7px #888;
+	-moz-box-shadow: 0px 3px 7px #888;
+}
+
+
+
+.qwizbook-collection-header {
+	border-bottom: thin solid #d0d0d0;
+}
+
+.qwizbook-container {
+	background: #0;
+	padding: 10px;
+	border-bottom: thin solid #d0d0d0;
+}
+
+.user-main-tab-content {
+	border-right: thin solid #d0d0d0;
+	border-left: thin solid #d0d0d0;
+	border-bottom: thin solid #d0d0d0;
+}
+
+
+
+ 
+/* #Media Queries
+================================================== */
+
+	/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {}
+
+
+/* #Font-Face
+================================================== */
+/* 	This is the proper syntax for an @font-face file
+		Just create a "fonts" folder at the root,
+		copy your FontName into code below and remove
+		comment brackets */
+
+/*	@font-face {
+	    font-family: 'FontName';
+	    src: url('../fonts/FontName.eot');
+	    src: url('../fonts/FontName.eot?iefix') format('eot'),
+	         url('../fonts/FontName.woff') format('woff'),
+	         url('../fonts/FontName.ttf') format('truetype'),
+	         url('../fonts/FontName.svg#webfontZam02nTh') format('svg');
+	    font-weight: normal;
+	    font-style: normal; }
+*/

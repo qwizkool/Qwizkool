@@ -1,0 +1,15 @@
+{
+  "name": "qwizkool",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.3",
+    "jade": "*",
+    "mongoose": "3.4.0",
+    "passport": "0.1.15",
+    "passport-local": "0.1.6"
+  }
+}
