@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en" itemscope itemtype="http://schema.org/Organization">
+<!--<![endif]-->
+<head>
+
+    <!-- Basic Page Needs
+        ================================================== -->
+    <meta charset="utf-8">
+    <title>Qwizkool | Learn new way</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Add the following three tags inside head -->
+    <meta itemprop="name" content="Checkout Qwizkool">
+    <meta itemprop="description" content="Found this interesting web application that makes learning fun and fast.">
+
+    <!-- Mobile Specific Metas
+        ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+        ================================================== -->
+    <link rel="stylesheet" href="stylesheets/index.css">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Favicons
+          ================================================== -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+
+    <!-- Using TipTip jQuery plugin for the tooltips -->
+    <!--TODO-- Move this all to the backbone> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="javascripts/jquery.tiptip.js"></script>
+    <script src="javascripts/tabs.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Launch TipTip tooltip
+            $('.tiptip a.guibutton, .tiptip guibutton').tipTip();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // Toggle the dropdown menu's
+            $(".dropdown .guibutton, .dropdown guibutton").click(function () {
+                $(this).parent().find('.dropdown-slider').slideToggle('fast');
+                $(this).find('span.toggle').toggleClass('active');
+                return false;
+            });
+        }); // END document.ready
+
+        // Close open dropdown slider/s by clicking elsewhwere on page
+        $(document).bind('click', function (e) {
+            if (e.target.id != $('.dropdown').attr('class')) {
+                $('.dropdown-slider').slideUp();
+                $('span.toggle').removeClass('active');
+            }
+        }); // END document.bind
+    </script>
+
+</head>
+<body>
+
+
+<div class="container">
+
+<!--Header-->
+<div id="qwizkool-int-header" class="row remove-bottom">
+    <div id="qwizkool-logo" class="five columns remove-bottom">
+        <img src="images/qwizkool-logo.png">
+    </div>
+
+    <div id="qwizkool-user-settings" class="four columns remove-bottom offset-by-seven">
+
+        <div class="guibuttons">
+            <div class="dropdown left">
+                <a href="#" class="guibutton left"><span class="icon icon96"></span><span
+                        class="label">Options</span><span class="toggle"></span></a>
+
+                <div class="dropdown-slider" style="display: none; ">
+                    <a href="#" class="ddm"><span class="icon icon127"></span><span class="label">Profile</span></a>
+                    <a href="#" class="ddm"><span class="icon icon125"></span><span
+                            class="label">Inbox (3)</span></a>
+                    <a href="#" class="ddm"><span class="icon icon196"></span><span
+                            class="label">Settings</span></a>
+                    <a href="#" class="ddm negative"><span class="icon icon151"></span><span
+                            class="label">Logout</span></a>
+                </div>
+                <!-- /.dropdown-slider -->
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--Tab Bar-->
+<div id="qwizkool-tabbar" class="row">
+
+    <!-- TAB HEADER -->
+    <ul class="tabs clearfix ">
+        <!-- Give href an ID value of corresponding "tabs-content" <li>'s -->
+        <li>
+            <a data-bypass class="active" href="#qwizkool-home"><strong>Home</strong></a>
+        </li>
+        <li>
+            <a data-bypass href="#qwizkool-library"><strong>Library</strong></a>
+        </li>
+        <li>
+            <a data-bypass href="#qwizkool-author"><strong>Create a Qwizbook</strong></a>
+        </li>
+        <li>
+            <a data-bypass href="#qwizkool-achievements"><strong>Achievements</strong></a>
+        </li>
+        <li>
+            <a data-bypass href="#qwizkool-bookmarks"><strong>Bookmarks</strong></a>
+        </li>
+    </ul>
+
+    <!-- TAB CONTENT Give ID that matches HREF of above anchors -->
+    <ul class="tabs-content clearfix user-main-tab-content">
+
+        <!--Home Page-->
+        <li class="active clearfix" id="qwizkool-home">
+
+            <!--Breadcrump-->
+            <div class="row breadcrump-container">
+                <ul id="breadcrumbs">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Main Category</a></li>
+                    <li><a href="#">Sub Category</a></li>
+                    <li><a href="#">Sub Sub Category</a></li>
+                    <li>Your Current Category</li>
+                </ul>
+            </div>
+
+            <!--Side left panel-->
+            <div id="qwizkool-home-content-left" class="four columns alpha clearfix">
+
+                <div class="row panel">
+                    <div class="row panel-header side-panel-header-style remove-bottom">
+                        <div><h6><strong>Search Qwizbooks</strong></h6></div>
+                    </div>
+                    <div class="row panel-container side-panel-style">
+                        <div class="row remove-bottom">
+                            <input class="text search" type="text" placeholder="Search Qwizkool"
+                                   id="user-search-input"
+                                   autofocus required/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row panel">
+                    <div class="row panel-header side-panel-header-style remove-bottom">
+                        <div><h6><strong>Top Categories</strong></h6></div>
+                    </div>
+                    <div class="row panel-container side-panel-style">
+                        <div class="row remove-bottom">
+                            <ul id="qwizkool-top-category-list">
+                                <li><strong><a href="#">Arts</a></strong></li>
+                                <li><strong><a href="#">Business</a></strong></li>
+                                <li><strong><a href="#">Education</a></strong></li>
+                                <li><strong><a href="#">Engineering</a></strong></li>
+                                <li><strong><a href="#">Health and Human Services</a></strong></li>
+                                <li><strong><a href="#">Hospitality, Sport & Recreation Management</a></strong></li>
+                                <li><strong><a href="#">Liberal Arts - Humanities</a></strong></li>
+                                <li><strong><a href="#">Media - Communications</a></strong></li>
+                                <li><strong><a href="#">Science & Math</a></strong></li>
+                                <li><strong><a href="#">Social Sciences </a></strong></li>
+                                <li><strong><a href="#">Technology - Communications</a></strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row panel">
+                    <div class="row panel-header side-panel-header-style remove-bottom">
+                        <div><h6><strong>Major Categories</strong></h6></div>
+                    </div>
+                    <div class="row panel-container side-panel-style">
+                        <div class="row remove-bottom">
+                            <ul id="qwizkool-major-category-list">
+                                <li><strong><a href="#">Arts</a></strong></li>
+                                <li><strong><a href="#">Business</a></strong></li>
+                                <li><strong><a href="#">Education</a></strong></li>
+                                <li><strong><a href="#">Engineering</a></strong></li>
+                                <li><strong><a href="#">Health and Human Services</a></strong></li>
+                                <li><strong><a href="#">Hospitality, Sport & Recreation Management</a></strong></li>
+                                <li><strong><a href="#">Liberal Arts - Humanities</a></strong></li>
+                                <li><strong><a href="#">Media - Communications</a></strong></li>
+                                <li><strong><a href="#">Science & Math</a></strong></li>
+                                <li><strong><a href="#">Social Sciences </a></strong></li>
+                                <li><strong><a href="#">Technology - Communications</a></strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Side Right panel-->
+            <div id="qwizkool-home-content-right" class="twelve columns omega clearfix">
+
+                <!--Side Right header-->
+                <div id="home-content-header" class="row side-panel-header-style remove-bottom">
+                    <div><h6> Content</h6></div>
+                </div>
+
+                <!--Side Right Content-->
+                <div id="home-content-container" class=" side-panel-style remove-bottom">
+
+                    <!--Qwizbook List Item-->
+                    <div class="row remove-bottom qwizbook-list-item qwizbook-panel-style">
+
+                        <div class="row  qwizbook-list-item-header">
+                            <div><h3>Title</h3></div>
+                        </div>
+
+                        <div class="row qwizbook-list-item-content">
+                            <div><h4>Description:</h4></div>
+                            <div>Donec imperdiet egestas lorem, nec feugiat eros gravida et. Pellentesque ultricies
+                                consectetur tortor, sit amet hendrerit nibh faucibus ac. Integer imperdiet, leo ut
+                                pretium mollis, quam sem malesuada magna, et sollicitudin risus tortor quis tellus.
+                                Nunc convallis laoreet mi, in ullamcorper dui molestie quis. Lorem ipsum dolor sit
+                                amet, consectetur adipiscing elit. Nullam sit amet posuere nulla. Nulla molestie
+                                aliquet tellus sed tristique. Duis pretium, sapien sed venenatis porttitor, nisl
+                                sem fringilla risus, ac ultricies neque quam vel massa.
+                            </div>
+                        </div>
+
+                        <div class="row qwizbook-list-item-footer">
+                            <div class="qwizbook-ratings-container">
+                                <ul class="rating-w-fonts">
+                                    <li class="rated">R</li>
+                                    <li class="rated">R</li>
+                                    <li class="rated">R</li>
+                                    <li>R</li>
+                                    <li>R</li>
+                                </ul>
+                            </div>
+                            <button>Open</button>
+                        </div>
+
+                    </div>
+                    <!--Qwizbook List Item-->
+                    <div class="row remove-bottom qwizbook-list-item qwizbook-panel-style">
+
+                        <div class="row  qwizbook-list-item-header">
+                            <div><h3>Title</h3></div>
+                        </div>
+
+                        <div class="row qwizbook-list-item-content">
+                            <div><h4>Description:</h4></div>
+                            <div>Donec imperdiet egestas lorem, nec feugiat eros gravida et. Pellentesque ultricies
+                                consectetur tortor, sit amet hendrerit nibh faucibus ac. Integer imperdiet, leo ut
+                                pretium mollis, quam sem malesuada magna, et sollicitudin risus tortor quis tellus.
+                                Nunc convallis laoreet mi, in ullamcorper dui molestie quis. Lorem ipsum dolor sit
+                                amet, consectetur adipiscing elit. Nullam sit amet posuere nulla. Nulla molestie
+                                aliquet tellus sed tristique. Duis pretium, sapien sed venenatis porttitor, nisl
+                                sem fringilla risus, ac ultricies neque quam vel massa.
+                            </div>
+                        </div>
+
+                        <div class="row qwizbook-list-item-footer">
+                            <div class="qwizbook-ratings-container">
+                                <ul class="rating-w-fonts">
+                                    <li class="rated">R</li>
+                                    <li >R</li>
+                                    <li>R</li>
+                                    <li>R</li>
+                                    <li>R</li>
+                                </ul>
+                            </div>
+                            <button>Open</button>
+                        </div>
+
+                    </div>
+                    <!--Qwizbook List Item-->
+                    <div class="row remove-bottom qwizbook-list-item qwizbook-panel-style">
+
+                        <div class="row  qwizbook-list-item-header">
+                            <div><h3>Title</h3></div>
+                        </div>
+
+                        <div class="row qwizbook-list-item-content">
+                            <div><h4>Description:</h4></div>
+                            <div>Donec imperdiet egestas lorem, nec feugiat eros gravida et. Pellentesque ultricies
+                                consectetur tortor, sit amet hendrerit nibh faucibus ac. Integer imperdiet, leo ut
+                                pretium mollis, quam sem malesuada magna, et sollicitudin risus tortor quis tellus.
+                                Nunc convallis laoreet mi, in ullamcorper dui molestie quis. Lorem ipsum dolor sit
+                                amet, consectetur adipiscing elit. Nullam sit amet posuere nulla. Nulla molestie
+                                aliquet tellus sed tristique. Duis pretium, sapien sed venenatis porttitor, nisl
+                                sem fringilla risus, ac ultricies neque quam vel massa.
+                            </div>
+                        </div>
+
+                        <div class="row qwizbook-list-item-footer">
+                            <div class="qwizbook-ratings-container">
+                                <ul class="rating-w-fonts">
+                                    <li class="rated">R</li>
+                                    <li class="rated">R</li>
+                                    <li>R</li>
+                                    <li>R</li>
+                                    <li>R</li>
+                                </ul>
+                            </div>
+                            <button>Open</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </li>
+
+        <li id="qwizkool-library">
+            Qwizkool user Library panel.
+        </li>
+        <li id="qwizkool-author">
+            Qwizkool authoring panel.
+        </li>
+        <li id="qwizkool-achievements">
+            Qwizkool achievements panel.
+        </li>
+        <li id="qwizkool-bookmarks">
+            Qwizkool book marks panel
+        </li>
+    </ul>
+
+</div>
+
+</div>
+
+</body>
+</html>

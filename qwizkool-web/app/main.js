@@ -42,6 +42,14 @@ function(namespace, $, scion, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain
 
 		index : function(hash) {
 
+
+    
+      var currentUser = new User.Model();
+      if (currentUser.isUserAuthenticated() === true) {
+        Backbone.history.navigate("main", true);
+        return;
+      }
+      
 			var indexPage = new IndexPage.View();
 			indexPage.render();
 			
@@ -152,11 +160,15 @@ function(namespace, $, scion, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain
 				  
 				  success: function(model, response) {
 					$("#page_body").html("<h3>" + model.get('title') + "</h3>");
-				   $("#page_body").append("<h4>" + "SCXML data :" + "</h4>");
-				   $("#page_body").append("<hr/>" + JSON.stringify(model.get('body')) + "<hr/>");
 					
 					var scxml_body = model.get('body');
 					
+				   $("#page_body").append("Got qwizbook statechart" + "<br/>");
+					
+				   $("#page_body").append("SCXML data :" + "<br/>");
+				   $("#page_body").append("<hr/>" + JSON.stringify(model.get('body')) + "<hr/>");
+					
+			
 					var scxml_xml = $.parseXML(scxml_body.und[0].value);
 					
 					var scmodel = scion.documentToModel(scxml_xml);
@@ -165,25 +177,48 @@ function(namespace, $, scion, Tabs, Backbone, AboutUs, ViewUtils, User, UserMain
 
                     //instantiate the interpreter
                     var interpreter = new scion.SCXML(scmodel);
+						  
+						  
 
 						  interpreter.registerListener({
 							 onEntry : function(stateId) {
-								$("#page_body").append("<h4>" + "Entering state :" + stateId + "</h4>");
+								$("#page_body").append("Entering state :" + stateId + "<br/>");
 								},
 							 onExit : function(stateId) {
-								$("#page_body").append("<h4>" + "Exiting state :" + stateId + "</h4>");
+								$("#page_body").append("Exiting state :" + stateId + "<br/>");
 								},
 							 onTransition : function(sourceStateId, targetStateIds) {
-								$("#page_body").append("<h4>" + "Transitioning from state :" + sourceStateId + "</h4>");
+								$("#page_body").append("Transitioning from state :" + sourceStateId + "<br/>");
 								}
 							 });						  
 						  
                     //start the interpreter
                     interpreter.start();
+						  
+				   $("#page_body").append("Started SCXML interpreter" + "<br/>");
+						  
 
                     //send the init event
                     interpreter.gen({name:"init",data:{foo:1}});
-
+						  
+				   $("#page_body").append("Sent init event to SCXML state-chart" + "<br/>");
+						  
+                   //send the init event
+                    interpreter.gen({name:"next_page",data:{foo:1}});
+						  
+				   $("#page_body").append("Sent next_page event to SCXML state-chart" + "<br/>");
+	
+                   //send the init event
+                    interpreter.gen({name:"success",data:{foo:1}});
+						  
+				   $("#page_body").append("Sent success event to SCXML state-chart" + "<br/>");
+	
+                  //send the init event
+                    interpreter.gen({name:"next_page",data:{foo:1}});
+						  
+				   $("#page_body").append("Sent next_page event to SCXML state-chart" + "<br/><hr/>");
+   
+ 
                     function handleEvent(e){
                         e.preventDefault();
                         interpreter.gen({name : e.type,data: e});

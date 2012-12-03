@@ -1,0 +1,33 @@
+.breadcrump-container ul, li {
+    list-style-type:none;
+    padding:0;
+    margin:0;
+
+}
+
+#breadcrumbs {
+    height:auto;
+    /*TODO: how to make this work for mobile size*/
+    /*border:1px solid #c9c9c9;*/
+}
+#breadcrumbs li {
+    float:left;
+    line-height:auto;
+    color:#777;
+    padding-left:.85em;
+}
+#breadcrumbs li a {
+    background: url(../images/breadcrumps.png) no-repeat right center;
+    display:block;
+    padding:0 15px 0 0;
+}
+#breadcrumbs li a:link,
+#breadcrumbs li a:visited {
+    color:#777;
+    text-decoration:none;
+}
+a:link, a:visited,
+#breadcrumbs li a:hover,
+#breadcrumbs li a:focus {
+    color:#222
+}
